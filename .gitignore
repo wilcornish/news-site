@@ -8,7 +8,8 @@ target
 .idea/**/usage.statistics.xml
 .idea/**/dictionaries
 .idea/**/shelf
-.idea/workspace.xml
+.idea/workspace.xml]
+*.iml
 
 # Sensitive or high-churn files
 .idea/**/dataSources/

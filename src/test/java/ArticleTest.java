@@ -59,7 +59,7 @@ public class ArticleTest {
     }
 
     @Test
-    public public void getDate() {
+    public void getDate() {
         assertEquals(date, article.getDate());
     }
 

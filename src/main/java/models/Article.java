@@ -17,6 +17,15 @@ public class Article {
 
     public Article(){}
 
+    public Article(String title, String summary, Date date, String content, Journalist journalist, String image){
+        this.title = title;
+        this.summary = summary;
+        this.date = date;
+        this.content = content;
+        this.journalist = journalist;
+        this.image = image;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")

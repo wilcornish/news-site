@@ -5,7 +5,7 @@ import models.Journalist;
 
 import java.util.Date;
 
-public class seeds {
+public class Seeds {
 
     public static void seedData() {
         Date date1 = new Date(1532006280);

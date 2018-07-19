@@ -70,7 +70,7 @@ public class Journalist {
         this.picture = picture;
     }
 
-    @OneToMany(mappedBy = "article", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "journalist", fetch = FetchType.LAZY)
     public List<Article> getArticles() {
         return articles;
     }

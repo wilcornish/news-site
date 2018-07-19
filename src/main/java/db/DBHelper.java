@@ -1,7 +1,7 @@
 package db;
 
-//import models.Journalist;
-//import models.Article;
+import models.Journalist;
+import models.Article;
 import org.hibernate.*;
 import org.hibernate.criterion.Restrictions;
 

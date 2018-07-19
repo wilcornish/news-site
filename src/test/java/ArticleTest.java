@@ -1,13 +1,13 @@
-package models;
-
 import models.Article;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import models.Journalist;
+import org.junit.Before;
+import org.junit.Test;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.Assert.assertEquals;
+
 
 public class ArticleTest {
 
@@ -19,66 +19,66 @@ public class ArticleTest {
 //    Date newDate = dateFormat.parse(stringDate);
 
 
-    @BeforeEach
+    @Before
     public void setup(){
         journalist = new Journalist("Dave Cornelius", "Dave Cornelius is a made up journalist", "@DCornelius", "DaveCornelius.jpg");
         article = new Article("Article Title", "Article summary", date, "Article content", journalist, "image.jpg");
     }
 
     @Test
-    void getId() {
+    public void getId() {
     }
 
     @Test
-    void setId() {
+    public  void setId() {
     }
 
     @Test
-    void getTitle() {
+    public  void getTitle() {
     }
 
     @Test
-    void setTitle() {
+    public  void setTitle() {
     }
 
     @Test
-    void getSummary() {
+    public  void getSummary() {
     }
 
     @Test
-    void setSummary() {
+    public void setSummary() {
     }
 
     @Test
-    void getDate() {
+    public void getDate() {
         assertEquals(date, article.getDate());
     }
 
     @Test
-    void setDate() {
+    public  void setDate() {
     }
 
     @Test
-    void getContent() {
+    public void getContent() {
     }
 
     @Test
-    void setContent() {
+    public void setContent() {
     }
 
     @Test
-    void getJournalist() {
+    public void getJournalist() {
     }
 
     @Test
-    void setJournalist() {
+    public void setJournalist() {
     }
 
     @Test
-    void getImage() {
+    public void getImage() {
     }
 
     @Test
-    void setImage() {
+    public  void setImage() {
     }
 }

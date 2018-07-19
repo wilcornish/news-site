@@ -3,6 +3,9 @@ package models;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+import java.util.Date;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class JournalistTest {
@@ -75,5 +78,11 @@ class JournalistTest {
 
     @Test
     void setArticles() {
+        Date date = new Date(1532006280);
+        Article article = new Article("Article Title", "Article summary", date, "Article content", journalist, "image.jpg");
+        ArrayList<Article> articlelist = new ArrayList<Article>();
+        articlelist.add(article);
+        journalist.setArticles(articlelist);
+       assertEquals(1, journalist.getArticles().size());
     }
 }

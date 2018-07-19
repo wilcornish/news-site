@@ -1,10 +1,12 @@
 package models;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "journalists")
-public class journalist {
+public class Journalist {
     private int id;
     private String name;
     private String bio;
@@ -13,15 +15,15 @@ public class journalist {
     private List<Article> articles;
 
 
-    public journalist(String name, String bio, String twitter, String picture) {
+    public Journalist(String name, String bio, String twitter, String picture) {
         this.name = name;
         this.bio = bio;
         this.twitter = twitter;
         this.picture = picture;
-        this.articles = new List<Article>;
+        this.articles = new ArrayList();
     }
 
-    public journalist(){}
+    public Journalist(){}
 
     @Id
     @GeneratedValue

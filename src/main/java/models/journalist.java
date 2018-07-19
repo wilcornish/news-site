@@ -1,6 +1,7 @@
 package models;
 
 @Entity
+@Table(name = "journalists")
 public class journalist {
     private int id;
     private String name;
@@ -18,6 +19,11 @@ public class journalist {
         this.articles = new List<Article>;
     }
 
+    public journalist(){}
+
+    @Id
+    @GenerateValue
+    @Column(name="id")
     public int getId() {
         return id;
     }
@@ -25,7 +31,7 @@ public class journalist {
     public void setId(int id) {
         this.id = id;
     }
-
+    @Column(name="name")
     public String getName() {
         return name;
     }
@@ -34,6 +40,7 @@ public class journalist {
         this.name = name;
     }
 
+    @Column(name="bio")
     public String getBio() {
         return bio;
     }
@@ -41,7 +48,7 @@ public class journalist {
     public void setBio(String bio) {
         this.bio = bio;
     }
-
+    @Column(name="twitter")
     public String getTwitter() {
         return twitter;
     }
@@ -50,6 +57,7 @@ public class journalist {
         this.twitter = twitter;
     }
 
+    @Column(name="pictures")
     public String getPicture() {
         return picture;
     }
@@ -58,6 +66,7 @@ public class journalist {
         this.picture = picture;
     }
 
+    @Column(name="articles")
     public List<Article> getArticles() {
         return articles;
     }

@@ -1,5 +1,7 @@
 package models;
 
+import javax.persistence.*;
+
 @Entity
 @Table(name = "journalists")
 public class journalist {
@@ -22,7 +24,7 @@ public class journalist {
     public journalist(){}
 
     @Id
-    @GenerateValue
+    @GeneratedValue
     @Column(name="id")
     public int getId() {
         return id;

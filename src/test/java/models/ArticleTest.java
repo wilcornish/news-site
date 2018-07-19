@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class ArticleTest {
 
     Article article;
-    Journalist journalist;
+    models.Journalist journalist;
     Date date = new Date(1532006280);
 //    SimpleDateFormat dateFormat = new SimpleDateFormat("dd/mm/yyyy");
 //    String stringDate = "20/10/18";

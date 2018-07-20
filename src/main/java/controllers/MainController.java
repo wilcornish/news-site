@@ -18,11 +18,14 @@ public class MainController {
     public static void main(String[] args) {
         DBHelper.deleteAll(Article.class);
         DBHelper.deleteAll(Journalist.class);
+        Seeds.seedData();
 
         VelocityTemplateEngine velocityTemplateEngine = new VelocityTemplateEngine();
         staticFileLocation("/public");
 
-        Seeds.seedData();
+        ArticleController articleController = new ArticleController();
+        JournalistController journalistController = new JournalistController();
+
         get("/", (request, response) -> {
             Map<String, Object> model = new HashMap();
             model.put("template", "templates/home.vtl");

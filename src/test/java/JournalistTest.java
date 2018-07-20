@@ -3,6 +3,7 @@ import models.Journalist;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -78,8 +79,8 @@ public class JournalistTest {
     }
 
     @Test
-    public void setArticles() {
-        Date date = new Date(1532006280);
+    void setArticles() {
+        LocalDate date = LocalDate.of(20,10, 17);
         Article article = new Article("Article Title", "Article summary", date, "Article content", journalist, "image.jpg");
         ArrayList<Article> articlelist = new ArrayList<Article>();
         articlelist.add(article);

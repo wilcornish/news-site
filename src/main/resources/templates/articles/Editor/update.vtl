@@ -1,0 +1,31 @@
+<h1>Update Article</h1>
+
+<form action="/editor/articles/$article.getId()" method="post">
+
+<label for="journalist">Journalist</label>
+<select id="journalist" name="journalist"  >
+    #foreach ($journalist in $journalists)
+    <option value="$journalist.getId()"> $journalist.getName()</option>
+    #end
+</select>
+
+<label for="date">Date</label>
+<input type="date" name="date" id ="date" />
+<br/>
+<label for="title">Title</label>
+<input type="text" id="title" name="title" required="true"/>
+<br />
+<label for="summary">Summary</label>
+<br />
+<textarea cols="60" rows="5"id="summary" name="summary" required="true"> </textarea>
+<br/>
+<label for="content">Content</label><br />
+<textarea cols="60" rows="15" id="content" name="content"> </textarea>
+<br/>
+
+<label for="image">Image</label>
+<input type="text" id="image" name="image" />
+
+<input type="submit" value="Save Article" />
+
+</form>

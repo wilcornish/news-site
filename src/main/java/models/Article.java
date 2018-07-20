@@ -1,6 +1,7 @@
 package models;
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.Date;
 
 @Entity
 @Table(name = "articles")
@@ -9,14 +10,14 @@ public class Article {
     private int id;
     private String title;
     private String summary;
-    private LocalDate date;
+    private Date date;
     private String content;
     private Journalist journalist;
     private String image;
 
     public Article(){}
 
-    public Article(String title, String summary, LocalDate date, String content, Journalist journalist, String image){
+    public Article(String title, String summary, Date date, String content, Journalist journalist, String image){
         this.title = title;
         this.summary = summary;
         this.date = date;
@@ -55,11 +56,11 @@ public class Article {
     }
 
     @Column(name = "date")
-    public LocalDate getDate() {
+    public Date getDate() {
         return date;
     }
 
-    public void setDate(LocalDate date) {
+    public void setDate(Date date) {
         this.date = date;
     }
 

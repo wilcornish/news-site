@@ -14,10 +14,7 @@ public class ArticleTest {
 
     Article article;
     models.Journalist journalist;
-    LocalDate date = LocalDate.of(2018, 04, 01);
-//    SimpleDateFormat dateFormat = new SimpleDateFormat("dd/mm/yyyy");
-//    String stringDate = "20/10/18";
-//    Date newDate = dateFormat.parse(stringDate);
+    Date date = new Date(118, 04, 01);
 
 
     @Before
@@ -66,7 +63,7 @@ public class ArticleTest {
 
     @Test
     public void setDate() {
-        LocalDate newDate = LocalDate.of(2018,10, 17);
+        Date newDate = new Date(2018,10, 17);
         article.setDate(newDate);
         assertEquals(newDate, article.getDate());
 

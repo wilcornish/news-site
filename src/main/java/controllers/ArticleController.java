@@ -55,7 +55,7 @@ public class ArticleController {
             String title = request.queryParams("title");
             String summary = request.queryParams("summary");
             String[] dateParts = request.queryParams("date").split("-");
-            LocalDate date = LocalDate.of(Integer.parseInt(dateParts[0]), Integer.parseInt(dateParts[1]), Integer.parseInt(dateParts[2]));
+            java.util.Date date = new Date(Integer.parseInt(dateParts[0]), Integer.parseInt(dateParts[1]), Integer.parseInt(dateParts[2]));
             String content = request.queryParams("content");
             Journalist journalist = DBHelper.find(Integer.valueOf(request.queryParams("journalist")), Journalist.class);
             String image = request.queryParams("image");
@@ -86,7 +86,7 @@ public class ArticleController {
             String title = request.queryParams("title");
             String summary = request.queryParams("summary");
             String[] dateParts = request.queryParams("date").split("-");
-            LocalDate date = LocalDate.of(Integer.parseInt(dateParts[0]), Integer.parseInt(dateParts[1]), Integer.parseInt(dateParts[2]));
+            Date date = new Date(Integer.parseInt(dateParts[0]), Integer.parseInt(dateParts[1]), Integer.parseInt(dateParts[2]));
             String content = request.queryParams("content");
             Journalist journalist = DBHelper.find(Integer.valueOf(request.queryParams("journalist")), Journalist.class);
             String image = request.queryParams("image");

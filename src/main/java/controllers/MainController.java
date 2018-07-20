@@ -24,7 +24,7 @@ public class MainController {
         staticFileLocation("/public");
 
         ArticleController articleController = new ArticleController();
-//        JournalistController journalistController = new JournalistController();
+        JournalistController journalistController = new JournalistController();
 
         get("/", (request, response) -> {
             Map<String, Object> model = new HashMap();

@@ -7,10 +7,16 @@
 
     #foreach($journalist in $journalists)
     <tr>
-        <td>$journalist.getImage()</td>
+        <td>$journalist.getPicture()</td>
         <td>$journalist.getName()</td>
+        <td><a href="/editor/journalists/$journalist.getId()/edit">Edit</a></td>
+        <td><form action="/editor/journalists/$journalist.getId()/delete" method="post">
+            <input type="submit" value="Delete">
+        </form></td>
     </tr>
     #end
 
 
 </table>
+
+<a href="/editor/journalists/new">Add a new journalist</a>

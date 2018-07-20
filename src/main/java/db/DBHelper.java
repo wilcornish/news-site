@@ -119,4 +119,19 @@ public class DBHelper {
         }
     }
 
+    public static List<Article> getArticlesForJournalist(Journalist journalist){
+        session = HibernateUtil.getSessionFactory().openSession();
+        List<Article> results = null;
+        try {
+            Criteria cr = session.createCriteria(Article.class);
+            cr.add(Restrictions.eq("journalist", journalist));
+            results = cr.list();
+        } catch (HibernateException e) {
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+        return results;
+    }
+
 }

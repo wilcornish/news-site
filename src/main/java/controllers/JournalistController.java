@@ -1,6 +1,7 @@
 package controllers;
 
 import db.DBHelper;
+import models.Article;
 import models.Journalist;
 import models.Journalist;
 import spark.ModelAndView;
@@ -89,12 +90,38 @@ public class JournalistController {
             return null;
         }, velocityTemplateEngine);
 
-        get("/journalists/:id", (request, response) -> {
+//        get("/journalists/:id", (request, response) -> {
+//            Map<String, Object> model = new HashMap();
+//            model.put("template", "templates/journalists/index.vtl");
+//            Journalist journalist = DBHelper.find(Integer.valueOf(request.params("id")), Journalist.class);
+//            model.put("journalist", journalist);
+//            return new ModelAndView(model, "templates/layout.vtl");
+//        }, velocityTemplateEngine);
+
+
+
+        get("/journalists", (request, response) -> {
             Map<String, Object> model = new HashMap();
             model.put("template", "templates/journalists/index.vtl");
-            Journalist journalist = DBHelper.find(Integer.valueOf(request.params("id")), Journalist.class);
-            model.put("journalist", journalist);
+            List<Journalist> journalists = DBHelper.getAll(Journalist.class);
+            model.put("journalists", journalists);
             return new ModelAndView(model, "templates/layout.vtl");
         }, velocityTemplateEngine);
+
+        get("journalists/:id", (req, res) -> {
+            String strId = req.params(":id");
+            Integer intId = Integer.parseInt(strId);
+            Journalist journalist = DBHelper.find(intId, Journalist.class);
+            List<Article> articles = DBHelper.getArticlesForJournalist(journalist);
+
+            Map<String, Object> model = new HashMap<>();
+
+            model.put("journalist", journalist);
+            model.put("articles", articles);
+
+            model.put("template", "templates/journalists/show.vtl");
+            return new ModelAndView(model, "templates/layout.vtl");
+
+        }, new VelocityTemplateEngine());
     }
 }

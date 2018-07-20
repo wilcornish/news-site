@@ -80,7 +80,7 @@ public class JournalistTest {
 
     @Test
     void setArticles() {
-        LocalDate date = LocalDate.of(20,10, 17);
+        LocalDate date = LocalDate.of(2018,10, 17);
         Article article = new Article("Article Title", "Article summary", date, "Article content", journalist, "image.jpg");
         ArrayList<Article> articlelist = new ArrayList<Article>();
         articlelist.add(article);

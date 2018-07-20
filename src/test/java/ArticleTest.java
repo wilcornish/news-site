@@ -4,6 +4,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.Date;
 
 import static org.junit.Assert.assertEquals;
@@ -13,7 +14,7 @@ public class ArticleTest {
 
     Article article;
     models.Journalist journalist;
-    Date date = new Date(1532006280);
+    LocalDate date = LocalDate.of(2018, 04, 01);
 //    SimpleDateFormat dateFormat = new SimpleDateFormat("dd/mm/yyyy");
 //    String stringDate = "20/10/18";
 //    Date newDate = dateFormat.parse(stringDate);
@@ -33,7 +34,7 @@ public class ArticleTest {
     @Test
     public void setId() {
         article.setId(1);
-        assertEquals(g1, article.getId());
+        assertEquals(1, article.getId());
     }
 
     @Test
@@ -49,7 +50,7 @@ public class ArticleTest {
 
     @Test
     public void getSummary() {
-        assertEquals("Article Summary", article.getSummary());
+        assertEquals("Article summary", article.getSummary());
     }
 
     @Test
@@ -65,7 +66,7 @@ public class ArticleTest {
 
     @Test
     public void setDate() {
-        Date newDate = new Date(1532006285);
+        LocalDate newDate = LocalDate.of(2018,10, 17);
         article.setDate(newDate);
         assertEquals(newDate, article.getDate());
 

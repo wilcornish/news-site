@@ -1,0 +1,16 @@
+<table>
+
+    <tr>
+        <th>Image</th>
+        <th>Name</th>
+    </tr>
+
+    #foreach($journalist in $journalists)
+    <tr>
+        <td>$journalist.getImage()</td>
+        <td>$journalist.getName()</td>
+    </tr>
+    #end
+
+
+</table>

@@ -56,7 +56,8 @@ public class ArticleController {
             String summary = request.queryParams("summary");
             String[] dateParts = request.queryParams("date").split("-");
             java.util.Date date = new Date((Integer.parseInt(dateParts[0]) - 1900), Integer.parseInt(dateParts[1]), Integer.parseInt(dateParts[2]));
-            String content = request.queryParams("content");
+            String contentBreakless = request.queryParams("content");
+            String content = contentBreakless.replace("\n", "</p><p>\n");
             Journalist journalist = DBHelper.find(Integer.valueOf(request.queryParams("journalist")), Journalist.class);
             String image = request.queryParams("image");
             Article newArticle = new Article(title, summary, date, content, journalist, image);
@@ -87,7 +88,8 @@ public class ArticleController {
             String summary = request.queryParams("summary");
             String[] dateParts = request.queryParams("date").split("-");
             Date date = new Date((Integer.parseInt(dateParts[0]) - 1900), Integer.parseInt(dateParts[1]), Integer.parseInt(dateParts[2]));
-            String content = request.queryParams("content");
+            String contentBreakless = request.queryParams("content");
+            String content = contentBreakless.replace("\n", "</p><p>\n");
             Journalist journalist = DBHelper.find(Integer.valueOf(request.queryParams("journalist")), Journalist.class);
             String image = request.queryParams("image");
             Article newArticle = new Article(title, summary, date, content, journalist, image);

@@ -46,7 +46,7 @@ public class Article {
         this.title = title;
     }
 
-    @Column(name = "summary")
+    @Column(name = "summary", columnDefinition="TEXT")
     public String getSummary() {
         return summary;
     }
@@ -64,7 +64,7 @@ public class Article {
         this.date = date;
     }
 
-    @Column(name = "content")
+    @Column(name = "content", columnDefinition="TEXT")
     public String getContent() {
         return content;
     }

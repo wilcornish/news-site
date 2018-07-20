@@ -1,0 +1,10 @@
+<h1>$journalist.getName()</h1>
+
+<h1>Headlines</h1>
+#foreach($article in $journalist.getArticles())
+<article><img src="$article.getImage()" alt=""/>
+    <h2>$article.getTitle()</h2>
+    <p>$article.getDate()</p>
+    <p>$article.getSummary()</p>
+    <p><a href="/article/$article.getId()">Read More</a></p></article>
+#end

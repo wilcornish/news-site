@@ -23,11 +23,12 @@ public class Journalist {
         this.articles = new ArrayList();
     }
 
-    public Journalist(){}
+    public Journalist() {
+    }
 
     @Id
     @GeneratedValue
-    @Column(name="id")
+    @Column(name = "id")
     public int getId() {
         return id;
     }
@@ -35,7 +36,8 @@ public class Journalist {
     public void setId(int id) {
         this.id = id;
     }
-    @Column(name="name")
+
+    @Column(name = "name")
     public String getName() {
         return name;
     }
@@ -44,7 +46,7 @@ public class Journalist {
         this.name = name;
     }
 
-    @Column(name="bio")
+    @Column(name = "bio")
     public String getBio() {
         return bio;
     }
@@ -52,7 +54,8 @@ public class Journalist {
     public void setBio(String bio) {
         this.bio = bio;
     }
-    @Column(name="twitter")
+
+    @Column(name = "twitter")
     public String getTwitter() {
         return twitter;
     }
@@ -61,7 +64,7 @@ public class Journalist {
         this.twitter = twitter;
     }
 
-    @Column(name="picture")
+    @Column(name = "picture")
     public String getPicture() {
         return picture;
     }

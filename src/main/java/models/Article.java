@@ -49,7 +49,7 @@ public class Article {
         this.title = title;
     }
 
-    @Column(name = "date")
+    @Column(name = "summary")
     public String getSummary() {
         return summary;
     }

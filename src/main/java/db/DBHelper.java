@@ -1,7 +1,7 @@
 package db;
 
-//import models.Journalist;
-//import models.Article;
+import models.Journalist;
+import models.Article;
 import org.hibernate.*;
 import org.hibernate.criterion.Restrictions;
 
@@ -103,6 +103,20 @@ public class DBHelper {
         cr.add(Restrictions.eq("id", id));
         return getUnique(cr);
 
+    }
+
+    public static void update(Object object){
+        session = HibernateUtil.getSessionFactory().openSession();
+        try {
+            transaction = session.beginTransaction();
+            session.update(object);
+            transaction.commit();
+        } catch (HibernateException e) {
+            transaction.rollback();
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
     }
 
 }

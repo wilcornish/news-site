@@ -1,79 +1,80 @@
-package models;
-
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import models.Article;
+import models.Journalist;
+import org.junit.Before;
+import org.junit.Test;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.assertEquals;
 
-class JournalistTest {
+
+public class JournalistTest {
     Journalist journalist;
 
-    @BeforeEach
-    void setUp() {
+    @Before
+    public void setUp() {
         journalist = new Journalist("Dave Cornelius", "Dave Cornelius is a made up journalist", "@DCornelius", "DaveCornelius.jpg");
     }
 
     @Test
-    void getId() {
+    public void getId() {
        assertEquals(0, journalist.getId());
     }
 
     @Test
-    void setId() {
+    public  void setId() {
         journalist.setId(1);
         assertEquals(1, journalist.getId());
     }
 
     @Test
-    void getName() {
+    public  void getName() {
         assertEquals("Dave Cornelius", journalist.getName());
     }
 
     @Test
-    void setName() {
+    public  void setName() {
         journalist.setName("Quentin Travers");
         assertEquals("Quentin Travers", journalist.getName());
     }
 
     @Test
-    void getBio() {
+    public  void getBio() {
         assertEquals("Dave Cornelius is a made up journalist", journalist.getBio());
     }
 
     @Test
-    void setBio() {
+    public void setBio() {
         journalist.setBio("Dave Cornelius saw the Battle Beast");
         assertEquals("Dave Cornelius saw the Battle Beast", journalist.getBio());
     }
 
     @Test
-    void getTwitter() {
+    public  void getTwitter() {
         assertEquals("@DCornelius", journalist.getTwitter());
     }
 
     @Test
-    void setTwitter() {
+    public  void setTwitter() {
         journalist.setTwitter("@DaveCornelius");
         assertEquals("@DaveCornelius", journalist.getTwitter());
     }
 
     @Test
-    void getPicture() {
+    public  void getPicture() {
         assertEquals("DaveCornelius.jpg", journalist.getPicture());
     }
 
     @Test
-    void setPicture() {
+    public  void setPicture() {
         journalist.setPicture("dave.jpg");
         assertEquals("dave.jpg", journalist.getPicture());
     }
 
     @Test
-    void getArticles() {
+    public void getArticles() {
         assertEquals(0, journalist.getArticles().size());
     }
 

@@ -42,10 +42,10 @@ public class JournalistController {
 
         post("/editor/journalists", (request, response) -> {
             HashMap<String, Object> model = new HashMap<>();
-            String name = request.queryParams(name);
-            String bio = request.queryParams(bio);
-            String twitter = request.queryParams(twitter);
-            String picture = request.queryParams(picture);
+            String name = request.queryParams("name");
+            String bio = request.queryParams("bio");
+            String twitter = request.queryParams("twitter");
+            String picture = request.queryParams("picture");
             Journalist newJournalist = new Journalist(name, bio, twitter, picture);
             DBHelper.save(newJournalist);
             response.redirect("/editor/journalists");
@@ -69,10 +69,10 @@ public class JournalistController {
 
         post("/editor/journalists/:id", (request, response) -> {
             HashMap<String, Object> model = new HashMap<>();
-            String name = request.queryParams(name);
-            String bio = request.queryParams(bio);
-            String twitter = request.queryParams(twitter);
-            String picture = request.queryParams(picture);
+            String name = request.queryParams("name");
+            String bio = request.queryParams("bio");
+            String twitter = request.queryParams("twitter");
+            String picture = request.queryParams("picture");
             Journalist newJournalist = new Journalist(name, bio, twitter, picture);
             newJournalist.setId(Integer.parseInt(request.params("id")));
             DBHelper.update(newJournalist);

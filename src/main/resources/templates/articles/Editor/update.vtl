@@ -11,24 +11,24 @@
 </select>
 
 <label for="date">Date</label>
-<input type="date" name="date" id ="date" value="$article.getDate"/>
+<input type="date" name="date" id="date" value="$article.getDate"/>
 <br/>
 <label for="title">Title</label>
 <input type="text" id="title" name="title" required="true" value="$article.getTitle()"/>
-<br />
-<label for="summary">Summary</label>
-<br />
-<textarea cols="60" rows="5"id="summary" name="summary" required="true">$article.getSummary()</textarea>
 <br/>
-<label for="content">Content</label><br />
+<label for="summary">Summary</label>
+<br/>
+<textarea cols="60" rows="5" id="summary" name="summary" required="true">$article.getSummary()</textarea>
+<br/>
+<label for="content">Content</label><br/>
 <textarea cols="60" rows="15" id="content" name="content">$article.getContent()</textarea>
 <br/>
 
 <label for="image">Image</label>
-<input type="text" id="image" name="image" value="$article.getImage()" />
+<input type="text" id="image" name="image" value="$article.getImage()"/>
 
-<input type="submit" value="Save Article" />
+<input type="submit" value="Save Article"/>
 
 </form>
 
-//TODO select date and journalist
+        //TODO select date and journalist

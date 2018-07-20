@@ -54,7 +54,8 @@ public class ArticleController {
             HashMap<String, Object> model = new HashMap<>();
             String title = request.queryParams("title");
             String summary = request.queryParams("summary");
-            LocalDate = LocalDate.of();
+            Array[String]
+            LocalDate = LocalDate.of(request.queryParams());
             String content = request.queryParams("content");
             Journalist journalist = DBHelper.find(Integer.valueOf(request.queryParams("journalist")), Journalist.class);
             String image = request.queryParams("image");

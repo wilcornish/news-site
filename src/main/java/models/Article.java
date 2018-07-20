@@ -1,6 +1,9 @@
 package models;
 
+import net.sf.cglib.core.Local;
+
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
@@ -10,14 +13,14 @@ public class Article {
     private int id;
     private String title;
     private String summary;
-    private Date date;
+    private LocalDate date;
     private String content;
     private Journalist journalist;
     private String image;
 
     public Article(){}
 
-    public Article(String title, String summary, Date date, String content, Journalist journalist, String image){
+    public Article(String title, String summary, LocalDate date, String content, Journalist journalist, String image){
         this.title = title;
         this.summary = summary;
         this.date = date;
@@ -56,11 +59,11 @@ public class Article {
     }
 
     @Column(name = "date")
-    public Date getDate() {
+    public LocalDate getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(LocalDate date) {
         this.date = date;
     }
 

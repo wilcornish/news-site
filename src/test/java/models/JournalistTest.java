@@ -3,6 +3,7 @@ package models;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -78,7 +79,7 @@ class JournalistTest {
 
     @Test
     void setArticles() {
-        Date date = new Date(1532006280);
+        LocalDate date = LocalDate.of(20,10, 17);
         Article article = new Article("Article Title", "Article summary", date, "Article content", journalist, "image.jpg");
         ArrayList<Article> articlelist = new ArrayList<Article>();
         articlelist.add(article);

@@ -8,6 +8,7 @@ import spark.ModelAndView;
 import spark.template.velocity.VelocityTemplateEngine;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import static spark.Spark.get;
@@ -29,6 +30,8 @@ public class MainController {
         get("/", (request, response) -> {
             Map<String, Object> model = new HashMap();
             model.put("template", "templates/home.vtl");
+            List<Article> articles = DBHelper.getAll(Article.class);
+            model.put("articles", articles);
             return new ModelAndView(model, "templates/layout.vtl");
         }, velocityTemplateEngine);
     }

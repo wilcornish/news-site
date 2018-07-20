@@ -105,6 +105,7 @@ public class JournalistController {
             model.put("template", "templates/journalists/index.vtl");
             List<Journalist> journalists = DBHelper.getAll(Journalist.class);
             model.put("journalists", journalists);
+
             return new ModelAndView(model, "templates/layout.vtl");
         }, velocityTemplateEngine);
 
@@ -113,12 +114,11 @@ public class JournalistController {
             Integer intId = Integer.parseInt(strId);
             Journalist journalist = DBHelper.find(intId, Journalist.class);
             List<Article> articles = DBHelper.getArticlesForJournalist(journalist);
-
             Map<String, Object> model = new HashMap<>();
-
             model.put("journalist", journalist);
+            List<Article> featurearticles = DBHelper.getAll(Article.class);
+            model.put("featurearticles", featurearticles);
             model.put("articles", articles);
-
             model.put("template", "templates/journalists/show.vtl");
             return new ModelAndView(model, "templates/layout.vtl");
 

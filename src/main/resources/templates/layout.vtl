@@ -14,5 +14,14 @@
     #parse( $template )
 </div>
 <!-- end inner template-->
+
+<aside>    #foreach($featurearticle in $featurearticles)
+    <article><img src="$article.getImage()" alt=""/>
+        <h2>$featurearticle.getTitle()</h2>
+        <p>$featurearticle.getDate()</p>
+        <p>$featurearticle.getSummary()</p>
+        <p><a href="/articles/$featurearticle.getId()">Read More</a></p></article>
+    #end</aside>
+
 </body>
 </html>

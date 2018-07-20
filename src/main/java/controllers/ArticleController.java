@@ -31,6 +31,8 @@ public class ArticleController {
             model.put("template", "templates/articles/index.vtl");
             List<Article> articles = DBHelper.getAll(Article.class);
             model.put("articles", articles);
+            List<Article> featurearticles = DBHelper.getAll(Article.class);
+            model.put("featurearticles", featurearticles);
             return new ModelAndView(model, "templates/layout.vtl");
         }, velocityTemplateEngine);
 
@@ -83,7 +85,6 @@ public class ArticleController {
 
         post("editor/articles/:id", (request, response) -> {
             HashMap<String, Object> model = new HashMap<>();
-
             String title = request.queryParams("title");
             String summary = request.queryParams("summary");
             String[] dateParts = request.queryParams("date").split("-");
@@ -104,6 +105,8 @@ public class ArticleController {
             model.put("template", "templates/articles/show.vtl");
             Article article = DBHelper.find(Integer.valueOf(request.params("id")), Article.class);
             model.put("article", article);
+            List<Article> featurearticles = DBHelper.getAll(Article.class);
+            model.put("featurearticles", featurearticles);
             return new ModelAndView(model, "templates/layout.vtl");
         }, velocityTemplateEngine);
     }

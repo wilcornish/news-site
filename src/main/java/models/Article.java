@@ -1,10 +1,6 @@
 package models;
-
-import net.sf.cglib.core.Local;
-
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.util.Date;
 
 @Entity
 @Table(name = "articles")

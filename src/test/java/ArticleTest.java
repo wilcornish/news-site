@@ -33,7 +33,7 @@ public class ArticleTest {
     @Test
     public void setId() {
         article.setId(1);
-        assertEquals(1, article.getId());
+        assertEquals(g1, article.getId());
     }
 
     @Test

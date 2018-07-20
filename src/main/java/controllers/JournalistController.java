@@ -24,23 +24,23 @@ public class JournalistController {
 
         VelocityTemplateEngine velocityTemplateEngine = new VelocityTemplateEngine();
 
-        get("/journalists", (request, response) -> {
+        get("/editor/journalists", (request, response) -> {
             Map<String, Object> model = new HashMap();
-            model.put("template", "templates/journalists/index.vtl");
+            model.put("template", "templates/journalists/editor/index.vtl");
             List<Journalist> journalists = DBHelper.getAll(Journalist.class);
             model.put("journalists", journalists);
             return new ModelAndView(model, "templates/layout.vtl");
         }, velocityTemplateEngine);
 
-        get("/journalists/new", (request, response) -> {
+        get("/editor/journalists/new", (request, response) -> {
             HashMap<String, Object> model = new HashMap<>();
             List<Journalist> journalist = DBHelper.getAll(Journalist.class);
             model.put("journalists", journalist);
-            model.put("template", "templates/journalists/create.vtl");
+            model.put("template", "templates/journalists/editor/create.vtl");
             return new ModelAndView(model, "templates/layout.vtl");
         }, velocityTemplateEngine);
 
-        post("/journalists", (request, response) -> {
+        post("/editor/journalists", (request, response) -> {
             HashMap<String, Object> model = new HashMap<>();
             String name = request.queryParams(name);
             String bio = request.queryParams(bio);
@@ -48,26 +48,26 @@ public class JournalistController {
             String picture = request.queryParams(picture);
             Journalist newJournalist = new Journalist(name, bio, twitter, picture);
             DBHelper.save(newJournalist);
-            response.redirect("/journalists");
+            response.redirect("/editor/journalists");
             return null;
         }, velocityTemplateEngine);
 
-        post("/journalists/:id/delete", (request, response) -> {
+        post("/editor/journalists/:id/delete", (request, response) -> {
             DBHelper.delete(DBHelper.find(Integer.parseInt(request.params("id")), Journalist.class));
-            response.redirect("/journalists");
+            response.redirect("/editor/journalists");
             return null;
         }, velocityTemplateEngine);
 
-        get("/journalists/:id/edit", (request, response) -> {
+        get("/editor/journalists/:id/edit", (request, response) -> {
             HashMap<String, Object> model = new HashMap<>();
             List<Journalist> journalist = DBHelper.getAll(Journalist.class);
             model.put("journalist", DBHelper.find(Integer.parseInt(request.params("id")), Journalist.class));
             model.put("journalists", journalist);
-            model.put("template", "templates/journalists/update.vtl");
+            model.put("template", "templates/journalists/editor/update.vtl");
             return new ModelAndView(model, "templates/layout.vtl");
         }, velocityTemplateEngine);
 
-        post("/journalists/:id", (request, response) -> {
+        post("/editor/journalists/:id", (request, response) -> {
             HashMap<String, Object> model = new HashMap<>();
             String name = request.queryParams(name);
             String bio = request.queryParams(bio);
@@ -76,7 +76,7 @@ public class JournalistController {
             Journalist newJournalist = new Journalist(name, bio, twitter, picture);
             newJournalist.setId(Integer.parseInt(request.params("id")));
             DBHelper.update(newJournalist);
-            response.redirect("/journalists");
+            response.redirect("/editor/journalists");
             return null;
         }, velocityTemplateEngine);
 

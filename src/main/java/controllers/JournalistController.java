@@ -34,8 +34,8 @@ public class JournalistController {
 
         get("/editor/journalists/new", (request, response) -> {
             HashMap<String, Object> model = new HashMap<>();
-            List<Journalist> journalist = DBHelper.getAll(Journalist.class);
-            model.put("journalists", journalist);
+            List<Journalist> journalists = DBHelper.getAll(Journalist.class);
+            model.put("journalists", journalists);
             model.put("template", "templates/journalists/editor/create.vtl");
             return new ModelAndView(model, "templates/layout.vtl");
         }, velocityTemplateEngine);
@@ -58,14 +58,23 @@ public class JournalistController {
             return null;
         }, velocityTemplateEngine);
 
-        get("/editor/journalists/:id/edit", (request, response) -> {
-            HashMap<String, Object> model = new HashMap<>();
-            List<Journalist> journalist = DBHelper.getAll(Journalist.class);
-            model.put("journalist", DBHelper.find(Integer.parseInt(request.params("id")), Journalist.class));
-            model.put("journalists", journalist);
-            model.put("template", "templates/journalists/editor/update.vtl");
+//        get("/editor/journalists/:id/edit", (request, response) -> {
+//            HashMap<String, Object> model = new HashMap<>();
+//            model.put("journalist", DBHelper.find(Integer.parseInt(request.params("id")), Journalist.class));
+//            model.put("template", "templates/journalists/editor/edit.vtl");
+//            return new ModelAndView(model, "templates/layout.vtl");
+//        }, velocityTemplateEngine);
+
+        get("editor/journalists/:id/edit", (req, res) -> {
+            Map<String, Object> model = new HashMap<>();
+            int journalistId = Integer.parseInt(req.params(":id"));
+            Journalist selectedJournalist = DBHelper.find(journalistId, Journalist.class);
+            model.put("journalist", selectedJournalist);
+            model.put("template", "templates/journalists/editor/edit.vtl");
             return new ModelAndView(model, "templates/layout.vtl");
-        }, velocityTemplateEngine);
+        }, new VelocityTemplateEngine());
+
+
 
         post("/editor/journalists/:id", (request, response) -> {
             HashMap<String, Object> model = new HashMap<>();

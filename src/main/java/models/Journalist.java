@@ -61,7 +61,7 @@ public class Journalist {
         this.twitter = twitter;
     }
 
-    @Column(name="pictures")
+    @Column(name="picture")
     public String getPicture() {
         return picture;
     }

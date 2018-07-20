@@ -7,6 +7,7 @@ import spark.ModelAndView;
 import spark.template.velocity.VelocityTemplateEngine;
 
 import java.sql.Date;
+import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -53,7 +54,7 @@ public class ArticleController {
             HashMap<String, Object> model = new HashMap<>();
             String title = request.queryParams("title");
             String summary = request.queryParams("summary");
-            Date date = new Date(Integer.valueOf(request.queryParams("date")));
+            LocalDate = LocalDate.of();
             String content = request.queryParams("content");
             Journalist journalist = DBHelper.find(Integer.valueOf(request.queryParams("journalist")), Journalist.class);
             String image = request.queryParams("image");

@@ -45,7 +45,7 @@ public class ArticleController {
             HashMap<String, Object> model = new HashMap<>();
             String title = request.queryParams(title);
             String summary = request.queryParams(summary);
-            Date date = Date.parse(request.queryParams(date));
+            Date date = new Date(Integer.parseInt(request.queryParams(date)));
             String content = request.queryParams(content);
             Journalist journalist = DBHelper.find(Integer.valueOf(request.queryParams("journalist")), Journalist.class);
             String image = request.queryParams(image);
@@ -74,7 +74,7 @@ public class ArticleController {
             HashMap<String, Object> model = new HashMap<>();
             String title = request.queryParams(title);
             String summary = request.queryParams(summary);
-            Date date = Date.parse(request.queryParams(date));
+            Date date = new Date(Integer.parseInt(request.queryParams(date)));
             String content = request.queryParams(content);
             Journalist journalist = DBHelper.find(Integer.valueOf(request.queryParams("journalist")), Journalist.class);
             String image = request.queryParams(image);

@@ -60,6 +60,7 @@ public class ArticleController {
             String content = contentBreakless.replace("\n", "</p><p>\n");
             Journalist journalist = DBHelper.find(Integer.valueOf(request.queryParams("journalist")), Journalist.class);
             String image = request.queryParams("image");
+
             Article newArticle = new Article(title, summary, date, content, journalist, image);
             DBHelper.save(newArticle);
             response.redirect("/");

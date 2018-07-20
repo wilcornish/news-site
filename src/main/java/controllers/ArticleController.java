@@ -51,10 +51,10 @@ public class ArticleController {
 
         post("/editor/articles", (request, response) -> {
             HashMap<String, Object> model = new HashMap<>();
-            String title = request.queryParams(title);
-            String summary = request.queryParams(summary);
-            Date date = Date.parse(request.queryParams(date));
-            String content = request.queryParams(content);
+            String title = request.queryParams("title");
+            String summary = request.queryParams("summary");
+            Date date = new Date(Integer.valueOf(request.queryParams("date")));
+            String content = request.queryParams("content");
             Journalist journalist = DBHelper.find(Integer.valueOf(request.queryParams("journalist")), Journalist.class);
             String image = request.queryParams(image);
             Article newArticle = new Article(title, summary, date, content, journalist, image);
@@ -80,12 +80,12 @@ public class ArticleController {
 
         post("editor/articles/:id", (request, response) -> {
             HashMap<String, Object> model = new HashMap<>();
-            String title = request.queryParams(title);
-            String summary = request.queryParams(summary);
-            Date date = Date.parse(request.queryParams(date));
-            String content = request.queryParams(content);
+            String title = request.queryParams("title");
+            String summary = request.queryParams("summary");
+            Date date = new Date(Integer.valueOf(request.queryParams("date")));
+            String content = request.queryParams("content");
             Journalist journalist = DBHelper.find(Integer.valueOf(request.queryParams("journalist")), Journalist.class);
-            String image = request.queryParams(image);
+            String image = request.queryParams("image");
             Article newArticle = new Article(title, summary, date, content, journalist, image);
             newArticle.setId(Integer.parseInt(request.params("id")));
             DBHelper.update(newArticle);

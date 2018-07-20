@@ -59,7 +59,7 @@ public class ArticleController {
             String image = request.queryParams("image");
             Article newArticle = new Article(title, summary, date, content, journalist, image);
             DBHelper.save(newArticle);
-            response.redirect("/editor/articles");
+            response.redirect("/");
             return null;
         }, velocityTemplateEngine);
 

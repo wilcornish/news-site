@@ -112,8 +112,8 @@ public class ArticleController {
             Journalist journalist = DBHelper.find(Integer.valueOf(request.queryParams("journalist")), Journalist.class);
             String image = request.queryParams("image");
 
-            String categoryValue = request.queryParams("category");
-            Category category = Category.valueOf(categoryValue);
+            int categoryValue = Integer.parseInt(request.queryParams("category"));
+            Category category = Category.values()[categoryValue];
 
             Article newArticle = new Article(title, summary, date, content, journalist, image, category);
             newArticle.setId(Integer.parseInt(request.params("id")));

@@ -4,8 +4,6 @@ import models.Journalist;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.text.SimpleDateFormat;
-import java.time.LocalDate;
 import java.util.Date;
 
 import static org.junit.Assert.assertEquals;
@@ -19,7 +17,7 @@ public class ArticleTest {
 
 
     @Before
-    public void setup(){
+    public void setup() {
         journalist = new Journalist("Dave Cornelius", "Dave Cornelius is a made up journalist", "@DCornelius", "DaveCornelius.jpg");
         article = new Article("Article Title", "Article summary", date, "Article content", journalist, "image.jpg", Category.POLITICS);
     }
@@ -64,7 +62,7 @@ public class ArticleTest {
 
     @Test
     public void setDate() {
-        Date newDate = new Date(2018,10, 17);
+        Date newDate = new Date(2018, 10, 17);
         article.setDate(newDate);
         assertEquals(newDate, article.getDate());
 

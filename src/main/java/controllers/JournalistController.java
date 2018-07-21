@@ -3,11 +3,9 @@ package controllers;
 import db.DBHelper;
 import models.Article;
 import models.Journalist;
-import models.Journalist;
 import spark.ModelAndView;
 import spark.template.velocity.VelocityTemplateEngine;
 
-import java.sql.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -59,13 +57,6 @@ public class JournalistController {
             return null;
         }, velocityTemplateEngine);
 
-//        get("/editor/journalists/:id/edit", (request, response) -> {
-//            HashMap<String, Object> model = new HashMap<>();
-//            model.put("journalist", DBHelper.find(Integer.parseInt(request.params("id")), Journalist.class));
-//            model.put("template", "templates/journalists/editor/edit.vtl");
-//            return new ModelAndView(model, "templates/layout.vtl");
-//        }, velocityTemplateEngine);
-
         get("editor/journalists/:id/edit", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
             int journalistId = Integer.parseInt(req.params(":id"));
@@ -74,8 +65,6 @@ public class JournalistController {
             model.put("template", "templates/journalists/editor/edit.vtl");
             return new ModelAndView(model, "templates/layout.vtl");
         }, new VelocityTemplateEngine());
-
-
 
         post("/editor/journalists/:id", (request, response) -> {
             HashMap<String, Object> model = new HashMap<>();
@@ -90,21 +79,12 @@ public class JournalistController {
             return null;
         }, velocityTemplateEngine);
 
-//        get("/journalists/:id", (request, response) -> {
-//            Map<String, Object> model = new HashMap();
-//            model.put("template", "templates/journalists/index.vtl");
-//            Journalist journalist = DBHelper.find(Integer.valueOf(request.params("id")), Journalist.class);
-//            model.put("journalist", journalist);
-//            return new ModelAndView(model, "templates/layout.vtl");
-//        }, velocityTemplateEngine);
-
-
-
         get("/journalists", (request, response) -> {
             Map<String, Object> model = new HashMap();
             model.put("template", "templates/journalists/index.vtl");
             List<Journalist> journalists = DBHelper.getAll(Journalist.class);
             model.put("journalists", journalists);
+
             return new ModelAndView(model, "templates/layout.vtl");
         }, velocityTemplateEngine);
 
@@ -113,12 +93,11 @@ public class JournalistController {
             Integer intId = Integer.parseInt(strId);
             Journalist journalist = DBHelper.find(intId, Journalist.class);
             List<Article> articles = DBHelper.getArticlesForJournalist(journalist);
-
             Map<String, Object> model = new HashMap<>();
-
             model.put("journalist", journalist);
+            List<Article> featurearticles = DBHelper.getAll(Article.class);
+            model.put("featurearticles", featurearticles);
             model.put("articles", articles);
-
             model.put("template", "templates/journalists/show.vtl");
             return new ModelAndView(model, "templates/layout.vtl");
 

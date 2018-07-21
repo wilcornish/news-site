@@ -1,6 +1,6 @@
 package models;
+
 import javax.persistence.*;
-import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
@@ -16,9 +16,11 @@ public class Article {
     private String image;
     private Category category;
 
-    public Article(){}
+    public Article() {
+    }
 
     public Article(String title, String summary, Date date, String content, Journalist journalist, String image, Category category){
+
         this.title = title;
         this.summary = summary;
         this.date = date;
@@ -48,7 +50,7 @@ public class Article {
         this.title = title;
     }
 
-    @Column(name = "summary", columnDefinition="TEXT")
+    @Column(name = "summary", columnDefinition = "TEXT")
     public String getSummary() {
         return summary;
     }
@@ -66,7 +68,7 @@ public class Article {
         this.date = date;
     }
 
-    @Column(name = "content", columnDefinition="TEXT")
+    @Column(name = "content", columnDefinition = "TEXT")
     public String getContent() {
         return content;
     }

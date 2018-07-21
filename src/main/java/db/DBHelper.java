@@ -105,7 +105,7 @@ public class DBHelper {
 
     }
 
-    public static void update(Object object){
+    public static void update(Object object) {
         session = HibernateUtil.getSessionFactory().openSession();
         try {
             transaction = session.beginTransaction();
@@ -119,7 +119,7 @@ public class DBHelper {
         }
     }
 
-    public static List<Article> getArticlesForJournalist(Journalist journalist){
+    public static List<Article> getArticlesForJournalist(Journalist journalist) {
         session = HibernateUtil.getSessionFactory().openSession();
         List<Article> results = null;
         try {

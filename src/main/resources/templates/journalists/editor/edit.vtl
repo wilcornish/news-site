@@ -3,22 +3,17 @@
 <form action="/editor/journalists/$journalist.getId()" method="post">
 
     <label for="name">Name</label>
-    <input type="text" id="name" name="name" required="true" value="$journalist.getName()">
+    <input type="text" id="name" name="name" required="true" value="$journalist.getName()"/>
 
     <label for="bio">Bio</label>
-    <input type="text" id="bio" name="bio" required="true" value = "$journalist.getBio()">
+    <input type="text" id="bio" name="name" required="true" value="$journalist.getBio()"/>
 
     <label for="twitter">Twitter</label>
-    <input type="text" id="twitter" name="twitter" required="true" value = "$journalist.getTwitter()">
+    <input type="text" id="twitter" name="twitter" required="true" value="$journalist.getTwitter()"/>
 
     <label for="picture">Image URL</label>
-    <input type="text" id="picture" name ="picture" required="true" value="$journalist.getPicture()">
+    <input type="text" id="picture" name="picture" required="true" value="$journalist.getPicture()"/>
 
-    <input type="submit" value="Update">
-
-
-
-
+    <input type="submit" value="Update" />
 
 </form>
-

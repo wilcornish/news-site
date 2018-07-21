@@ -1,9 +1,9 @@
 import models.Article;
+import models.Category;
 import models.Journalist;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -20,28 +20,28 @@ public class JournalistTest {
 
     @Test
     public void getId() {
-       assertEquals(0, journalist.getId());
+        assertEquals(0, journalist.getId());
     }
 
     @Test
-    public  void setId() {
+    public void setId() {
         journalist.setId(1);
         assertEquals(1, journalist.getId());
     }
 
     @Test
-    public  void getName() {
+    public void getName() {
         assertEquals("Dave Cornelius", journalist.getName());
     }
 
     @Test
-    public  void setName() {
+    public void setName() {
         journalist.setName("Quentin Travers");
         assertEquals("Quentin Travers", journalist.getName());
     }
 
     @Test
-    public  void getBio() {
+    public void getBio() {
         assertEquals("Dave Cornelius is a made up journalist", journalist.getBio());
     }
 
@@ -52,23 +52,23 @@ public class JournalistTest {
     }
 
     @Test
-    public  void getTwitter() {
+    public void getTwitter() {
         assertEquals("@DCornelius", journalist.getTwitter());
     }
 
     @Test
-    public  void setTwitter() {
+    public void setTwitter() {
         journalist.setTwitter("@DaveCornelius");
         assertEquals("@DaveCornelius", journalist.getTwitter());
     }
 
     @Test
-    public  void getPicture() {
+    public void getPicture() {
         assertEquals("DaveCornelius.jpg", journalist.getPicture());
     }
 
     @Test
-    public  void setPicture() {
+    public void setPicture() {
         journalist.setPicture("dave.jpg");
         assertEquals("dave.jpg", journalist.getPicture());
     }
@@ -78,13 +78,15 @@ public class JournalistTest {
         assertEquals(0, journalist.getArticles().size());
     }
 
-//    @Test
-//    void setArticles() {
-//        Date date = new Date(2018,10, 17);
-//        Article article = new Article("Article Title", "Article summary", date, "Article content", journalist, "image.jpg");
-//        ArrayList<Article> articlelist = new ArrayList<Article>();
-//        articlelist.add(article);
-//        journalist.setArticles(articlelist);
-//       assertEquals(1, journalist.getArticles().size());
-//    }
+
+    @Test
+    void setArticles() {
+        Date date = new Date(2018, 10, 17);
+        Article article = new Article("Article Title", "Article summary", date, "Article content", journalist, "image.jpg", Category.SCIENCE);
+        ArrayList<Article> articlelist = new ArrayList<Article>();
+        articlelist.add(article);
+        journalist.setArticles(articlelist);
+        assertEquals(1, journalist.getArticles().size());
+    }
+
 }

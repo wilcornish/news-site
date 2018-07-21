@@ -1,20 +1,19 @@
 package controllers;
 
 import db.DBHelper;
-import models.*;
 import models.Article;
+import models.Category;
+import models.Journalist;
 import spark.ModelAndView;
 import spark.template.velocity.VelocityTemplateEngine;
 
 import java.sql.Array;
 import java.sql.Date;
-import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static spark.Spark.delete;
 import static spark.Spark.get;
 import static spark.Spark.post;
 
@@ -34,6 +33,8 @@ public class ArticleController {
             List<Article> articles = DBHelper.getAll(Article.class);
 
             model.put("articles", articles);
+            List<Article> featurearticles = DBHelper.getAll(Article.class);
+            model.put("featurearticles", featurearticles);
             return new ModelAndView(model, "templates/layout.vtl");
         }, velocityTemplateEngine);
 
@@ -102,7 +103,6 @@ public class ArticleController {
 
         post("editor/articles/:id", (request, response) -> {
             HashMap<String, Object> model = new HashMap<>();
-
             String title = request.queryParams("title");
             String summary = request.queryParams("summary");
             String[] dateParts = request.queryParams("date").split("-");
@@ -127,6 +127,8 @@ public class ArticleController {
             model.put("template", "templates/articles/show.vtl");
             Article article = DBHelper.find(Integer.valueOf(request.params("id")), Article.class);
             model.put("article", article);
+            List<Article> featurearticles = DBHelper.getAll(Article.class);
+            model.put("featurearticles", featurearticles);
             return new ModelAndView(model, "templates/layout.vtl");
         }, velocityTemplateEngine);
     }

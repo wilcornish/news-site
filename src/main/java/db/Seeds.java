@@ -4,14 +4,13 @@ import models.Article;
 import models.Category;
 import models.Journalist;
 
-import java.time.LocalDate;
 import java.util.Date;
 
 public class Seeds {
 
     public static void seedData() {
-        Date date1 = new Date(118,10, 17);
-        Date date2 = new Date(118,10, 18);
+        Date date1 = new Date(118, 10, 17);
+        Date date2 = new Date(118, 10, 18);
         Journalist journalist1 = new Journalist("Dave Cornelius", "Dave Cornelius is a made up journalist", "@DCornelius", "DaveCornelius.jpg");
         Journalist journalist2 = new Journalist("Spider Jerusalem", "Spider Jerusalem is a figment of Warren Ellis' Imagination", "@SJerusalem", "SpiderJerusalem.jpg");
         DBHelper.save(journalist1);
@@ -25,4 +24,3 @@ public class Seeds {
         DBHelper.save(article2);
     }
 }
-//

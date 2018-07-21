@@ -13,13 +13,13 @@
     <input type="date" name="date" id="date"/>
     <br/>
     <label for="title">Title</label>
+    <input type="text" id="title" name="title" required="true"/>
     <label for="category">Select Category</label>
     <select name="category" id="category">
         #foreach ($category in $categories)
         <option value="$category.ordinal()">$category.getCategoryName()</option>
         #end
     </select>
-    <input type="text" id="title" name="title" required="true"/>
     <br/>
     <label for="summary">Summary</label>
     <br/>

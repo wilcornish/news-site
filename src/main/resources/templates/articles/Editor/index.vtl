@@ -7,12 +7,14 @@
     <th>Article Title</th>
     <th>Article Date</th>
     <th>Journalist</th>
+    <th>Category</th>
 </tr>
 #foreach($article in $articles)
 <tr>
     <td>$article.getTitle()</td>
     <td>$article.getDate()</td>
     <td>$article.getJournalist().getName()</td>
+    <td>$article.getCategory().getCategoryName()</td>
 
     <td><a href="/editor/articles/$article.getId()/edit">Edit Article</a></td>
     <td>

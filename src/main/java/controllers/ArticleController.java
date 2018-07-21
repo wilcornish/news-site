@@ -6,8 +6,10 @@ import models.Article;
 import spark.ModelAndView;
 import spark.template.velocity.VelocityTemplateEngine;
 
+import java.sql.Array;
 import java.sql.Date;
 import java.time.LocalDate;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -30,6 +32,7 @@ public class ArticleController {
             Map<String, Object> model = new HashMap();
             model.put("template", "templates/articles/index.vtl");
             List<Article> articles = DBHelper.getAll(Article.class);
+
             model.put("articles", articles);
             return new ModelAndView(model, "templates/layout.vtl");
         }, velocityTemplateEngine);
@@ -44,9 +47,15 @@ public class ArticleController {
 
         get("/editor/articles/new", (request, response) -> {
             HashMap<String, Object> model = new HashMap<>();
-            List<Journalist> journalist = DBHelper.getAll(Journalist.class);
-            model.put("journalists", journalist);
-            model.put("template", "templates/articles/editor/create.vtl");
+            List<Journalist> journalists = DBHelper.getAll(Journalist.class);
+
+            List<Category> categories = Arrays.asList(Category.values());
+
+            model.put("journalists", journalists);
+
+            model.put("categories", categories);
+
+            model.put("template", "templates/articles/Editor/create.vtl");
             return new ModelAndView(model, "templates/layout.vtl");
         }, velocityTemplateEngine);
 
@@ -60,8 +69,11 @@ public class ArticleController {
             String content = contentBreakless.replace("\n", "</p><p>\n");
             Journalist journalist = DBHelper.find(Integer.valueOf(request.queryParams("journalist")), Journalist.class);
             String image = request.queryParams("image");
+            int categoryValue = Integer.parseInt(request.queryParams("category"));
 
-            Article newArticle = new Article(title, summary, date, content, journalist, image);
+            Category category = Category.values()[categoryValue];
+
+            Article newArticle = new Article(title, summary, date, content, journalist, image, category);
             DBHelper.save(newArticle);
             response.redirect("/");
             return null;
@@ -76,8 +88,14 @@ public class ArticleController {
         get("editor/articles/:id/edit", (request, response) -> {
             HashMap<String, Object> model = new HashMap<>();
             List<Journalist> journalist = DBHelper.getAll(Journalist.class);
+
+            List<Category> categories = Arrays.asList(Category.values());
+
             model.put("article", DBHelper.find(Integer.parseInt(request.params("id")), Article.class));
             model.put("journalists", journalist);
+
+            model.put("categories", categories);
+
             model.put("template", "templates/articles/editor/update.vtl");
             return new ModelAndView(model, "templates/layout.vtl");
         }, velocityTemplateEngine);
@@ -93,7 +111,11 @@ public class ArticleController {
             String content = contentBreakless.replace("\n", "</p><p>\n");
             Journalist journalist = DBHelper.find(Integer.valueOf(request.queryParams("journalist")), Journalist.class);
             String image = request.queryParams("image");
-            Article newArticle = new Article(title, summary, date, content, journalist, image);
+
+            String categoryValue = request.queryParams("category");
+            Category category = Category.valueOf(categoryValue);
+
+            Article newArticle = new Article(title, summary, date, content, journalist, image, category);
             newArticle.setId(Integer.parseInt(request.params("id")));
             DBHelper.update(newArticle);
             response.redirect("/editor/articles");

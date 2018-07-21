@@ -15,5 +15,6 @@
         <property name="show_sql">true</property>
         <mapping class = "models.Article"/>
         <mapping class= "models.Journalist"/>
+        <mapping class="models.Category"/>
     </session-factory>
 </hibernate-configuration>

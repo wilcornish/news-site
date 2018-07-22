@@ -4,6 +4,7 @@ import db.ArticleHelper;
 import db.DBHelper;
 import db.Seeds;
 import models.Article;
+import models.Category;
 import models.Journalist;
 import spark.ModelAndView;
 import spark.template.velocity.VelocityTemplateEngine;
@@ -30,6 +31,7 @@ public class MainController {
         ArticleController articleController = new ArticleController();
         JournalistController journalistController = new JournalistController();
         EditorController editorController = new EditorController();
+        CategoryController categoryController = new CategoryController();
 
         get("/", (request, response) -> {
             Map<String, Object> model = new HashMap();
@@ -40,7 +42,6 @@ public class MainController {
             model.put("featurearticles", featurearticles);
             return new ModelAndView(model, "templates/layout.vtl");
         }, velocityTemplateEngine);
-
     }
 
 }

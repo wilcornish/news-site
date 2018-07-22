@@ -20,16 +20,27 @@ public enum Category {
         return this.categoryName;
     }
 
-    public static Category findByName(String name){
+    public static Category findByName(String name) {
         ArrayList<Category> categoryList = new ArrayList<>();
         categoryList.add(Category.UK);
         categoryList.add(Category.WORLD);
         categoryList.add(Category.POLITICS);
         categoryList.add(Category.SCIENCE);
         categoryList.add(Category.SPORTS);
-        for ( Category category : categoryList)
-        if(category.categoryName == name){return category;}
+
+        for (Category category : categoryList) {
+            if (category.getCategoryName() == name) {
+                return category;
+            }
+        }
         return null;
     }
+
+
+//
+//        for ( Category category : categoryList)
+//        if(category.getCategoryName() == name){return category;}
+//        return null;
+
 
 }

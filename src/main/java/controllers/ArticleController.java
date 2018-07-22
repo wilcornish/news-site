@@ -49,13 +49,11 @@ public class ArticleController {
         get("/editor/articles/new", (request, response) -> {
             HashMap<String, Object> model = new HashMap<>();
             List<Journalist> journalists = DBHelper.getAll(Journalist.class);
-
             List<Category> categories = Arrays.asList(Category.values());
-
+            String date = String.valueOf(java.time.LocalDate.now());
             model.put("journalists", journalists);
-
+            model.put("date", date);
             model.put("categories", categories);
-
             model.put("template", "templates/articles/Editor/create.vtl");
             return new ModelAndView(model, "templates/layout.vtl");
         }, velocityTemplateEngine);

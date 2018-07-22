@@ -136,8 +136,8 @@ public class ArticleController {
             Map<String, Object> model = new HashMap<>();
             model.put("template", "templates/articles/category.vtl");
 
-            int categoryValue = Integer.parseInt(req.queryParams("category"));
-            Category category = Category.values()[categoryValue];
+            String categoryValue = req.queryParams(":category");
+            Category category = Category.valueOf(categoryValue);
 
 
             List<Article> categoryArticles = DBHelper.getArticlesByCategory(category);
@@ -145,5 +145,7 @@ public class ArticleController {
             model.put("categoryArticles", categoryArticles);
             return new ModelAndView(model, "templates/layout.vtl");
         }, velocityTemplateEngine);
+
+
     }
 }

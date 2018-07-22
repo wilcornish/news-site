@@ -87,14 +87,15 @@ public class ArticleController {
         get("editor/articles/:id/edit", (request, response) -> {
             HashMap<String, Object> model = new HashMap<>();
             List<Journalist> journalist = DBHelper.getAll(Journalist.class);
-
             List<Category> categories = Arrays.asList(Category.values());
-
-            model.put("article", DBHelper.find(Integer.parseInt(request.params("id")), Article.class));
+            Article article = DBHelper.find(Integer.parseInt(request.params("id")), Article.class);
+            String articleDateTime = String.valueOf(article.getDate());
+            String[] articleDateParts = articleDateTime.split(" ");
+            String articleDate = articleDateParts[0];
+            model.put("article_date", articleDate);
+            model.put("article", article);
             model.put("journalists", journalist);
-
             model.put("categories", categories);
-
             model.put("template", "templates/articles/editor/update.vtl");
             return new ModelAndView(model, "templates/layout.vtl");
         }, velocityTemplateEngine);
@@ -109,10 +110,8 @@ public class ArticleController {
             String content = contentBreakless.replace("\n", "</p><p>\n");
             Journalist journalist = DBHelper.find(Integer.valueOf(request.queryParams("journalist")), Journalist.class);
             String image = request.queryParams("image");
-
             int categoryValue = Integer.parseInt(request.queryParams("category"));
             Category category = Category.values()[categoryValue];
-
             Article newArticle = new Article(title, summary, date, content, journalist, image, category);
             newArticle.setId(Integer.parseInt(request.params("id")));
             DBHelper.update(newArticle);

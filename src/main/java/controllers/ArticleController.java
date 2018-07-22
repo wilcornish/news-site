@@ -119,6 +119,15 @@ public class ArticleController {
             return null;
         }, velocityTemplateEngine);
 
+        get("/articles/category/:category", (req, res) -> {
+            Map<String, Object> model = new HashMap<>();
+            model.put("template", "templates/articles/category.vtl");
+            Category category = Category.findByName(req.queryParams(":category"));
+            List<Article> categoryArticles = DBHelper.getArticlesByCategory(category);
+            model.put("categoryArticles", categoryArticles);
+            return new ModelAndView(model, "templates/layout.vtl");
+        }, velocityTemplateEngine);
+
         get("/articles/:id", (request, response) -> {
             Map<String, Object> model = new HashMap();
             model.put("template", "templates/articles/show.vtl");
@@ -129,19 +138,7 @@ public class ArticleController {
             return new ModelAndView(model, "templates/layout.vtl");
         }, velocityTemplateEngine);
 
-        get("/articles/:category", (req, res) -> {
-            Map<String, Object> model = new HashMap<>();
-            model.put("template", "templates/articles/category.vtl");
 
-            String categoryValue = req.queryParams(":category");
-            Category category = Category.valueOf(categoryValue);
-
-
-            List<Article> categoryArticles = DBHelper.getArticlesByCategory(category);
-
-            model.put("categoryArticles", categoryArticles);
-            return new ModelAndView(model, "templates/layout.vtl");
-        }, velocityTemplateEngine);
 
 
     }

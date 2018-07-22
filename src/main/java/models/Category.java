@@ -1,5 +1,7 @@
 package models;
 
+import java.util.ArrayList;
+
 public enum Category {
 
     UK("UK"),
@@ -17,4 +19,17 @@ public enum Category {
     public String getCategoryName() {
         return this.categoryName;
     }
+
+    public static Category findByName(String name){
+        ArrayList<Category> categoryList = new ArrayList<>();
+        categoryList.add(Category.UK);
+        categoryList.add(Category.WORLD);
+        categoryList.add(Category.POLITICS);
+        categoryList.add(Category.SCIENCE);
+        categoryList.add(Category.SPORTS);
+        for ( Category category : categoryList)
+        if(category.categoryName == name){return category;}
+        return null;
+    }
+
 }

@@ -1,5 +1,6 @@
 package controllers;
 
+import db.ArticleHelper;
 import db.DBHelper;
 import models.Article;
 import models.Category;
@@ -30,10 +31,10 @@ public class ArticleController {
         get("/articles", (request, response) -> {
             Map<String, Object> model = new HashMap();
             model.put("template", "templates/articles/index.vtl");
-            List<Article> articles = DBHelper.getAll(Article.class);
+            List<Article> articles = ArticleHelper.getAll();
 
             model.put("articles", articles);
-            List<Article> featurearticles = DBHelper.getAll(Article.class);
+            List<Article> featurearticles = ArticleHelper.getAll();
             model.put("featurearticles", featurearticles);
             return new ModelAndView(model, "templates/layout.vtl");
         }, velocityTemplateEngine);
@@ -41,7 +42,7 @@ public class ArticleController {
         get("editor/articles", (request, response) -> {
             Map<String, Object> model = new HashMap();
             model.put("template", "templates/articles/editor/index.vtl");
-            List<Article> articles = DBHelper.getAll(Article.class);
+            List<Article> articles = ArticleHelper.getAll();
             model.put("articles", articles);
             return new ModelAndView(model, "templates/layout.vtl");
         }, velocityTemplateEngine);
@@ -124,7 +125,7 @@ public class ArticleController {
             model.put("template", "templates/articles/show.vtl");
             Article article = DBHelper.find(Integer.valueOf(request.params("id")), Article.class);
             model.put("article", article);
-            List<Article> featurearticles = DBHelper.getAll(Article.class);
+            List<Article> featurearticles = ArticleHelper.getAll();
             model.put("featurearticles", featurearticles);
             return new ModelAndView(model, "templates/layout.vtl");
         }, velocityTemplateEngine);

@@ -1,5 +1,6 @@
 package controllers;
 
+import db.ArticleHelper;
 import db.DBHelper;
 import models.Article;
 import models.Journalist;
@@ -95,7 +96,7 @@ public class JournalistController {
             List<Article> articles = DBHelper.getArticlesForJournalist(journalist);
             Map<String, Object> model = new HashMap<>();
             model.put("journalist", journalist);
-            List<Article> featurearticles = DBHelper.getAll(Article.class);
+            List<Article> featurearticles = ArticleHelper.getAll();
             model.put("featurearticles", featurearticles);
             model.put("articles", articles);
             model.put("template", "templates/journalists/show.vtl");

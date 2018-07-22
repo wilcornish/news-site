@@ -125,6 +125,7 @@ public class ArticleController {
             Category category = Category.findByName(req.queryParams(":category"));
             List<Article> categoryArticles = DBHelper.getArticlesByCategory(category);
             model.put("categoryArticles", categoryArticles);
+            model.put("category", category);
             return new ModelAndView(model, "templates/layout.vtl");
         }, velocityTemplateEngine);
 
@@ -137,8 +138,6 @@ public class ArticleController {
             model.put("featurearticles", featurearticles);
             return new ModelAndView(model, "templates/layout.vtl");
         }, velocityTemplateEngine);
-
-
 
 
     }

@@ -1,1 +1,4 @@
-<h1>Category</h1>
+<h1>$category.getCategoryName()</h1>
+#foreach($article in $categoryArticles)
+    <h2>$article.getTitle()</h2>
+#end

@@ -24,6 +24,14 @@
 <textarea cols="60" rows="15" id="content" name="content">$article.getContent()</textarea>
 <br/>
 
+    <label for="category">Select category</label>
+    <select name="category" id="category">
+        <option value="$article.getCategory().ordinal()" selected>$article.getCategory().getCategoryName()</option>
+        #foreach ($category in $categories)
+        <option value="$category.ordinal()">$category.getCategoryName()</option>
+        #end
+    </select>
+
 <label for="image">Image</label>
 <input type="text" id="image" name="image" value="$article.getImage()"/>
 

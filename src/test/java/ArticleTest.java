@@ -1,4 +1,5 @@
 import models.Article;
+import models.Category;
 import models.Journalist;
 import org.junit.Before;
 import org.junit.Test;
@@ -18,7 +19,7 @@ public class ArticleTest {
     @Before
     public void setup() {
         journalist = new Journalist("Dave Cornelius", "Dave Cornelius is a made up journalist", "@DCornelius", "DaveCornelius.jpg");
-        article = new Article("Article Title", "Article summary", date, "Article content", journalist, "image.jpg");
+        article = new Article("Article Title", "Article summary", date, "Article content", journalist, "image.jpg", Category.POLITICS);
     }
 
     @Test
@@ -99,5 +100,10 @@ public class ArticleTest {
     public void setImage() {
         article.setImage("newimage.jpg");
         assertEquals("newimage.jpg", article.getImage());
+    }
+
+    @Test
+    public void hasCategory(){
+        assertEquals(Category.POLITICS, article.getCategory());
     }
 }

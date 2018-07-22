@@ -1,4 +1,5 @@
 import models.Article;
+import models.Category;
 import models.Journalist;
 import org.junit.Before;
 import org.junit.Test;
@@ -77,13 +78,15 @@ public class JournalistTest {
         assertEquals(0, journalist.getArticles().size());
     }
 
+
     @Test
     void setArticles() {
         Date date = new Date(2018, 10, 17);
-        Article article = new Article("Article Title", "Article summary", date, "Article content", journalist, "image.jpg");
+        Article article = new Article("Article Title", "Article summary", date, "Article content", journalist, "image.jpg", Category.SCIENCE);
         ArrayList<Article> articlelist = new ArrayList<Article>();
         articlelist.add(article);
         journalist.setArticles(articlelist);
         assertEquals(1, journalist.getArticles().size());
     }
+
 }

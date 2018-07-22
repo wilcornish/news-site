@@ -14,17 +14,20 @@ public class Article {
     private String content;
     private Journalist journalist;
     private String image;
+    private Category category;
 
     public Article() {
     }
 
-    public Article(String title, String summary, Date date, String content, Journalist journalist, String image) {
+    public Article(String title, String summary, Date date, String content, Journalist journalist, String image, Category category){
+
         this.title = title;
         this.summary = summary;
         this.date = date;
         this.content = content;
         this.journalist = journalist;
         this.image = image;
+        this.category = category;
     }
 
     @Id
@@ -91,5 +94,14 @@ public class Article {
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    @Enumerated(value= EnumType.STRING)
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
     }
 }

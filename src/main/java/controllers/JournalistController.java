@@ -29,7 +29,7 @@ public class JournalistController {
             model.put("template", "templates/journalists/editor/index.vtl");
             List<Journalist> journalists = DBHelper.getAll(Journalist.class);
             model.put("journalists", journalists);
-            return new ModelAndView(model, "templates/layout.vtl");
+            return new ModelAndView(model, "templates/editorlayout.vtl");
         }, velocityTemplateEngine);
 
         get("/editor/journalists/new", (request, response) -> {
@@ -37,7 +37,7 @@ public class JournalistController {
             List<Journalist> journalists = DBHelper.getAll(Journalist.class);
             model.put("journalists", journalists);
             model.put("template", "templates/journalists/editor/create.vtl");
-            return new ModelAndView(model, "templates/layout.vtl");
+            return new ModelAndView(model, "templates/editorlayout.vtl");
         }, velocityTemplateEngine);
 
         post("/editor/journalists", (request, response) -> {
@@ -64,7 +64,7 @@ public class JournalistController {
             Journalist selectedJournalist = DBHelper.find(journalistId, Journalist.class);
             model.put("journalist", selectedJournalist);
             model.put("template", "templates/journalists/editor/edit.vtl");
-            return new ModelAndView(model, "templates/layout.vtl");
+            return new ModelAndView(model, "templates/editorlayout.vtl");
         }, new VelocityTemplateEngine());
 
         post("/editor/journalists/:id", (request, response) -> {

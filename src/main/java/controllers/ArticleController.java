@@ -8,7 +8,6 @@ import models.Journalist;
 import spark.ModelAndView;
 import spark.template.velocity.VelocityTemplateEngine;
 
-import java.sql.Array;
 import java.sql.Date;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -44,7 +43,7 @@ public class ArticleController {
             model.put("template", "templates/articles/editor/index.vtl");
             List<Article> articles = ArticleHelper.getAll();
             model.put("articles", articles);
-            return new ModelAndView(model, "templates/layout.vtl");
+            return new ModelAndView(model, "templates/editorlayout.vtl");
         }, velocityTemplateEngine);
 
         get("/editor/articles/new", (request, response) -> {
@@ -56,7 +55,7 @@ public class ArticleController {
             model.put("date", date);
             model.put("categories", categories);
             model.put("template", "templates/articles/Editor/create.vtl");
-            return new ModelAndView(model, "templates/layout.vtl");
+            return new ModelAndView(model, "templates/editorlayout.vtl");
         }, velocityTemplateEngine);
 
         post("/editor/articles", (request, response) -> {
@@ -98,7 +97,7 @@ public class ArticleController {
             model.put("journalists", journalist);
             model.put("categories", categories);
             model.put("template", "templates/articles/editor/update.vtl");
-            return new ModelAndView(model, "templates/layout.vtl");
+            return new ModelAndView(model, "templates/editorlayout.vtl");
         }, velocityTemplateEngine);
 
         post("editor/articles/:id", (request, response) -> {

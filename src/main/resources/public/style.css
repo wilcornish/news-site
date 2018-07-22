@@ -14,7 +14,7 @@ a {
   width: auto;
   grid-template-columns: 1fr 1fr 1fr 32.5vh;
   grid-template-rows: 1fr 1fr 1fr 1fr;
-  grid-gap: 20px 10px;
+  grid-row-gap: 10px;
   padding: 0px 0px;
 }
 
@@ -22,12 +22,13 @@ a {
   grid-area: auto / auto/ span 2/ span 1;
   border-bottom: 2px #7FC4FD solid;
   padding: 10px;
+  margin-right: 10px;
 }
 
 .sidebar{
   grid-area: 1/ 4/ span 4/ span 1;
   background-color: #F1F9FF;
-  padding: 10px;
+  padding-top: 10px;
   display: inline-flex;
   flex-direction: column;
   text-align: center;
@@ -37,15 +38,20 @@ a {
   grid-area: 1/2/span 4/span 1;
 }
 
-.bio{
-  grid-area: 1/1/span 1/span 3;
-  background-color: #7FC4FD;
-  padding-left: 5vw;
-  color: #ffffff;
-  flex-direction: column;
-  place-self: center stretch;
-  /* TODO discuss this with ben */
-  line-height: .5em;
+.bio {
+    grid-area: 1/1/span 1/span 3;
+    background-color: #7FC4FD;
+    padding-left: 5vw;
+    color: #ffffff;
+    flex-direction: column;
+    align-self: stretch;
+    line-height: .5em;
+    display: grid;
+    align-items: center;
+}
+
+.inner-bio{
+    line-spacing
 }
 
 img {
@@ -57,6 +63,7 @@ img {
   width: auto;
   border-radius: 50%;
   float: left;
+  padding: 1vh;
 }
 
 .hero {

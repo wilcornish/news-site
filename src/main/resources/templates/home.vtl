@@ -1,6 +1,6 @@
  #foreach($article in $articles)
  <article class ="storypreview"><img src="$article.getImage()" alt="" />
  <a href="/articles/$article.getId()"><h2>$article.getTitle()</h2>
-     <p>$article.getDate()</p>
+     <p>$article.getHumanDate()</p>
      <p>$article.getSummary()</p>
  </a></p></article>#end

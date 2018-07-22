@@ -1,9 +1,7 @@
 nav {
   width: auto;
-  align-content: left;
+  align-content: space-around;
   display: flex;
-  align-items: left;
-  justify-content: space-around;
   background: #2699FB;
 }
 

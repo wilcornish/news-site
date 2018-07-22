@@ -1,6 +1,8 @@
 package models;
 
 import javax.persistence.*;
+import java.text.SimpleDateFormat;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 @Entity
@@ -66,6 +68,11 @@ public class Article {
 
     public void setDate(Date date) {
         this.date = date;
+    }
+
+    public SimpleDateFormat getHumanDate(){
+        SimpleDateFormat humanDate = new SimpleDateFormat("eeee d MMMM yyyy");
+        return humanDate;
     }
 
     @Column(name = "content", columnDefinition = "TEXT")

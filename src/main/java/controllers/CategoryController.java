@@ -62,6 +62,26 @@ public class CategoryController {
             return new ModelAndView(model, "templates/layout.vtl");
         }, velocityTemplateEngine);
 
+        get("/articles/category/world", (req, res) -> {
+            Map<String, Object> model = new HashMap();
+            model.put("template", "templates/articles/category.vtl");
+            List<Article> articles = DBHelper.getArticlesByCategory(Category.WORLD);
+            Category category = Category.WORLD;
+            model.put("articles", articles);
+            model.put("category", category);
+            return new ModelAndView(model, "templates/layout.vtl");
+        }, velocityTemplateEngine);
+
+        get("/articles/category/sports", (req, res) -> {
+            Map<String, Object> model = new HashMap();
+            model.put("template", "templates/articles/category.vtl");
+            List<Article> articles = DBHelper.getArticlesByCategory(Category.SPORTS);
+            Category category = Category.SPORTS;
+            model.put("articles", articles);
+            model.put("category", category);
+            return new ModelAndView(model, "templates/layout.vtl");
+        }, velocityTemplateEngine);
+
 
 
     }

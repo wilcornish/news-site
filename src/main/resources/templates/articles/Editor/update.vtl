@@ -3,10 +3,10 @@
 <form action="/editor/articles/$article.getId()" method="post">
 
 <label for="journalist">Journalist</label>
-<select id="journalist" name="journalist" value="$article.getJournalist().getId()">
-
+<select id="journalist" name="journalist">
+    <option value="$article.getJournalist().getId()">$article.getJournalist().getName()</option>
     #foreach ($journalist in $journalists)
-    <option value="$journalist.getId()"> $journalist.getName()</option>
+    <option value="$journalist.getId()" > $journalist.getName()</option>
     #end
 </select>
 

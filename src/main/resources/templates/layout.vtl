@@ -2,29 +2,27 @@
 <html>
 <head>
     <title>A News Site</title>
+    <link rel="stylesheet" href="/style.css"/>
+    <link rel="stylesheet" href="/nav.css"/>
 </head>
 <body>
 <nav>
     <ul>
         <li><a href="/">Home</a></li>
+        <li><a href="/login">Editor Login</a></li>
     </ul>
 </nav>
+<main  class="grid">
 <!-- begin inner template-->
 <div class="container">
     #parse( $template )
 </div>
 <!-- end inner template-->
 
-<aside>    #foreach($featurearticle in $featurearticles)
-    <article><img src="/$featurearticle.getImage()" alt="" height=250px/>
-        <!--TODO adjust size with CSS-->
-        <h2>$featurearticle.getTitle()</h2>
-        <p>$featurearticle.getDate()</p>
-        <p>$featurearticle.getSummary()</p>
-        <p><a href="/articles/$featurearticle.getId()">Read More</a></p></article>
+<aside class="sidebar">    #foreach($featurearticle in $featurearticles)
+    <article><img src="/$featurearticle.getImage()" alt="" class="sidebarimage"/>
+        <a href="/articles/$featurearticle.getId()"><h5>$featurearticle.getTitle()</h5></article>
     #end</aside>
-
-<footer><p><a href="/login">Editor Login</a></p></footer>
+</main>
 </body>
-
 </html>

@@ -4,6 +4,7 @@ import db.ArticleHelper;
 import db.DBHelper;
 import db.Seeds;
 import models.Article;
+import models.Category;
 import models.Journalist;
 import spark.ModelAndView;
 import spark.template.velocity.VelocityTemplateEngine;
@@ -39,7 +40,6 @@ public class MainController {
             model.put("featurearticles", featurearticles);
             return new ModelAndView(model, "templates/layout.vtl");
         }, velocityTemplateEngine);
-
     }
 
 }

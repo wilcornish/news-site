@@ -30,6 +30,7 @@ public class MainController {
         ArticleController articleController = new ArticleController();
         JournalistController journalistController = new JournalistController();
         EditorController editorController = new EditorController();
+        CategoryController categoryController = new CategoryController();
 
         get("/", (request, response) -> {
             Map<String, Object> model = new HashMap();

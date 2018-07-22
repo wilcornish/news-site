@@ -70,11 +70,6 @@ public class Article {
         this.date = date;
     }
 
-    public SimpleDateFormat getHumanDate(){
-        SimpleDateFormat humanDate = new SimpleDateFormat("eeee d MMMM yyyy");
-        return humanDate;
-    }
-
     @Column(name = "content", columnDefinition = "TEXT")
     public String getContent() {
         return content;
@@ -110,5 +105,11 @@ public class Article {
 
     public void setCategory(Category category) {
         this.category = category;
+    }
+
+    public String showHumanDate(){
+        SimpleDateFormat formatter = new SimpleDateFormat("EEEEE d MMMMM yyyy");
+        String humanDate = formatter.format(date);
+        return humanDate;
     }
 }

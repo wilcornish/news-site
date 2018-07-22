@@ -9,7 +9,7 @@
         #foreach($article in $articles)
         <tr>
             <td>$article.getTitle()</td>
-            <td>$article.getDate()</td>
+            <td>$article.showHumanDate()</td>
             <td>$article.getJournalist().getName()</td>
             <td>$article.getCategory().getCategoryName()</td>
 

@@ -2,7 +2,7 @@
         #foreach($article in $articles)
 <article class="storypreview"><img src="$article.getImage()" alt="" height=250px/>
 <h2><a href="/articles/$article.getId()">$article.getTitle()</a></h2>
-<p>$article.getDate()</p>
+<p>$article.showHumanDate()</p>
 <p>$article.getSummary()</p>
 </article>
         #end

@@ -16,7 +16,8 @@
 <!-- end inner template-->
 
 <aside>    #foreach($featurearticle in $featurearticles)
-    <article><img src="$article.getImage()" alt=""/>
+    <article><img src="$featurearticle.getImage()" alt="" height=250px/>
+        <!--TODO adjust size with CSS-->
         <h2>$featurearticle.getTitle()</h2>
         <p>$featurearticle.getDate()</p>
         <p>$featurearticle.getSummary()</p>

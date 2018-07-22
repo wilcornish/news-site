@@ -1,5 +1,6 @@
 package controllers;
 
+import db.ArticleHelper;
 import db.DBHelper;
 import db.Seeds;
 import models.Article;
@@ -27,39 +28,18 @@ public class MainController {
 
         ArticleController articleController = new ArticleController();
         JournalistController journalistController = new JournalistController();
+        EditorController editorController = new EditorController();
 
         get("/", (request, response) -> {
             Map<String, Object> model = new HashMap();
             model.put("template", "templates/home.vtl");
-            List<Article> articles = DBHelper.getAll(Article.class);
+            List<Article> articles = ArticleHelper.getAll();
             model.put("articles", articles);
-            List<Article> featurearticles = DBHelper.getAll(Article.class);
+            List<Article> featurearticles = ArticleHelper.getAll();
             model.put("featurearticles", featurearticles);
             return new ModelAndView(model, "templates/layout.vtl");
         }, velocityTemplateEngine);
 
-        get("/login", (request, response) -> {
-            Map<String, Object> model = new HashMap();
-            model.put("template", "templates/login.vtl");
-            return new ModelAndView(model, "templates/layout.vtl");
-        }, velocityTemplateEngine);
-
-        get("/login", (request, response) -> {
-            Map<String, Object> model = new HashMap();
-            model.put("template", "templates/login.vtl");
-            return new ModelAndView(model, "templates/layout.vtl");
-        }, velocityTemplateEngine);
-
-        post("/editor", (request, response) -> {
-            response.redirect("/editor");
-            return null;
-        });
-
-        get("/editor", (request, response) -> {
-            Map<String, Object> model = new HashMap();
-            model.put("template", "templates/editor.vtl");
-            return new ModelAndView(model, "templates/layout.vtl");
-        }, velocityTemplateEngine);
     }
 
 }

@@ -1,9 +1,10 @@
 <main> <h1>$journalist.getName()</h1>
-    <img src="$journalist.getPicture()" alt="">
+    <img src="/$journalist.getPicture()" alt="" height=100px/>
     <p id="twitter">$journalist.getTwitter()</p>
     <p>$journalist.getBio()</p></main>
 #foreach($article in $articles)
-<article><img src="$article.getImage()" alt=""/>
+<article><img src="/$article.getImage()" alt="" height=250px/>
+<!--TODO adjust size with CSS-->
     <h2>$article.getTitle()</h2>
     <p>$article.getDate()</p>
     <p>$article.getSummary()</p>

@@ -7,7 +7,8 @@
 
     #foreach($journalist in $journalists)
     <tr>
-        <td>$journalist.getPicture()</td>
+        <td><img src="/$journalist.getPicture()" alt="" height=50px/></td>
+        <!--TODO adjust size with CSS-->
         <td>$journalist.getName()</td>
         <td><a href="/editor/journalists/$journalist.getId()/edit">Edit</a></td>
         <td>

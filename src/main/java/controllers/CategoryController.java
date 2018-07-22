@@ -42,6 +42,18 @@ public class CategoryController {
             return new ModelAndView(model, "templates/layout.vtl");
         }, velocityTemplateEngine);
 
+        get("/articles/category/politics", (req, res) -> {
+            Map<String, Object> model = new HashMap();
+            model.put("template", "templates/articles/category.vtl");
+            List<Article> articles = DBHelper.getArticlesByCategory(Category.POLITICS);
+            Category category = Category.POLITICS;
+            model.put("articles", articles);
+            model.put("category", category);
+            return new ModelAndView(model, "templates/layout.vtl");
+        }, velocityTemplateEngine);
+
+
+
     }
 }
 

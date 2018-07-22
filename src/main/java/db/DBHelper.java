@@ -1,5 +1,6 @@
 package db;
 
+import models.Category;
 import models.Journalist;
 import models.Article;
 import org.hibernate.*;
@@ -125,6 +126,21 @@ public class DBHelper {
         try {
             Criteria cr = session.createCriteria(Article.class);
             cr.add(Restrictions.eq("journalist", journalist));
+            results = cr.list();
+        } catch (HibernateException e) {
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+        return results;
+    }
+
+    public static List<Article> getArticlesByCategory(Category category) {
+        session = HibernateUtil.getSessionFactory().openSession();
+        List<Article> results = null;
+        try {
+            Criteria cr = session.createCriteria(Article.class);
+            cr.add(Restrictions.eq("category", category));
             results = cr.list();
         } catch (HibernateException e) {
             e.printStackTrace();

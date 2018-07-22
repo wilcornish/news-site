@@ -14,14 +14,11 @@
 </nav>
 <main  class="grid">
 <!-- begin inner template-->
-<div class="container">
     #parse( $template )
-</div>
 <!-- end inner template-->
-
 <aside class="sidebar">    #foreach($featurearticle in $featurearticles)
-    <article><img src="/$featurearticle.getImage()" alt="" class="sidebarimage"/>
-        <a href="/articles/$featurearticle.getId()"><h5>$featurearticle.getTitle()</h5></article>
+   <article class="sidebar-story"> <a href="/articles/$featurearticle.getId()"><img src="/$featurearticle.getImage()" alt="" class="sidebarimage"/>
+       <h5>$featurearticle.getTitle()</h5></a></article>
     #end</aside>
 </main>
 </body>

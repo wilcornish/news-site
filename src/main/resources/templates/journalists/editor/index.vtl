@@ -7,7 +7,7 @@
 
     #foreach($journalist in $journalists)
     <tr>
-        <td><img src="/$journalist.getPicture()" alt="" id="profile"/></td>
+        <td><img src="/$journalist.getPicture()" alt="" class="profile"/></td>
         <td>$journalist.getName()</td>
         <td><a href="/editor/journalists/$journalist.getId()/edit">Edit</a></td>
         <td>

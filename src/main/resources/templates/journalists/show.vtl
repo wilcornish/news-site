@@ -1,9 +1,10 @@
-<main> <h1>$journalist.getName()</h1>
-    <img src="/$journalist.getPicture()" alt="" class="profile"/>
+<main class="bio"><img src="/$journalist.getPicture()" alt="" class="profile"/>
+    <h1>$journalist.getName()</h1>
     <p id="twitter">$journalist.getTwitter()</p>
     <p>$journalist.getBio()</p></main>
 #foreach($article in $articles)
-<article><img src="/$article.getImage()" alt="" class="sidebar"/>
+<article class="storypreview">
+<img src="/$article.getImage()" alt="" class=""/>
     <h2>$article.getTitle()</h2>
     <p>$article.getDate()</p>
     <p>$article.getSummary()</p>

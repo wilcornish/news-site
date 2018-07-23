@@ -84,7 +84,8 @@ a {
     align-items: center;
 }
 
-.inner-bio{
+.bio_text {
+    margin-left: 110px;
 }
 
 .category {

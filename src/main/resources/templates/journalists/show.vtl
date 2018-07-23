@@ -1,10 +1,12 @@
 <main class="bio"><div class="innerbio"><img src="/$journalist.getPicture()" alt="" class="profile"/>
+    <div class="bio_text">
     <h1>   $journalist.getName()</h1>
     <p>   $journalist.getTwitter()</p>
     <p>   $journalist.getBio()</p></div></main>
+</div>
 #foreach($article in $articles)
 <article class="storypreview">
-<img src="/$article.getImage()" alt="" class=""/>
+<img class="bio_img" src="/$article.getImage()" alt=""/>
 <a href="/articles/$article.getId()"><h2>$article.getTitle()</h2></a>
     <p>$article.showHumanDate()</p>
     <p>$article.getSummary()</p></article>

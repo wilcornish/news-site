@@ -32,7 +32,6 @@ public class MainController {
         JournalistController journalistController = new JournalistController();
         EditorController editorController = new EditorController();
         CategoryController categoryController = new CategoryController();
-
         get("/", (request, response) -> {
             Map<String, Object> model = new HashMap();
             model.put("template", "templates/home.vtl");

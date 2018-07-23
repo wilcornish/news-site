@@ -1,6 +1,15 @@
+<img class="makingnews" src="/images/MakingNews.png" alt="" />
+
 <form action="/editor" method="post" class="login">
-    <label for="password">Enter Editor Password</label>
+    <label class="label" for="username">Username:</label>
+    <br/>
+    <input type="text" name="username" id="username" value="Editor"></input>
+    <br/>
+    <label class="label" for="password">Password:</label>
     <br />
     <input type="password" name="password" id="password"/>
-    <input type="submit" value="Login"/>
+    <br />
+    <div class="checkbox"><input type="checkbox" id="remember" value="Remember Me" checked />Remember Me</div>
+    <br />
+    <input type="submit" value="Log In"/>
 </form>

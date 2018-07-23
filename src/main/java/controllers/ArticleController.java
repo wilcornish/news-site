@@ -30,7 +30,7 @@ public class ArticleController {
         get("/articles", (request, response) -> {
             Map<String, Object> model = new HashMap();
             model.put("template", "templates/articles/index.vtl");
-            List<Article> articles = ArticleHelper.getAll();
+            List<Article> articles = ArticleHelper.getSidebar();
 
             model.put("articles", articles);
             List<Article> featurearticles = ArticleHelper.getAll();

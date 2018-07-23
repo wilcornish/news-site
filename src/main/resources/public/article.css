@@ -26,11 +26,3 @@
 .journalist_link:hover {
     text-decoration: underline;
 }
-
-.material-icons:hover {
-    color: #2699FB !important;
-}
-
-.story .img {
-    padding-bottom: 10px;
-}

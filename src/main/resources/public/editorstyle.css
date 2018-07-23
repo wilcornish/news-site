@@ -22,6 +22,10 @@ a {
   padding: 0px 0px;
 }
 
+.logo {
+height: 20px;
+}
+
 table{
 border-collapse: collapse;
 text-align: left;
@@ -80,7 +84,7 @@ form {
   justify-self: center;
   color: #ffffff;
   background: #2699FB;
-  height: 20vh;
+  height: 17vh;
   min-height: 260px;
   margin: 40px;
   padding: 40px;
@@ -91,7 +95,7 @@ form {
 
 .makingnews {
  grid-area: 1/2/span 1/span 1;
- height: 15vh;
+ height: 25vh;
  align-self: center;
  justify-self: center;
  padding-top: 45px;

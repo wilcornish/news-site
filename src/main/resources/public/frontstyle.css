@@ -11,7 +11,7 @@ a {
 
 .grid {
   display: grid;
-  height: auto;
+  height: 150vh;
   width: auto;
   grid-template-columns: 1fr 1fr 1fr 32.5vh;
   grid-template-rows: 1fr 1fr 1fr 1fr;
@@ -48,7 +48,6 @@ a {
 .frontpage-story-preview:first-child {
  grid-area: 1 / 1/ span 1 / span 3;
  background-color: #7FC4FD;
- height: 45vh;
  padding: 0px;
  margin-right: 0px;
 
@@ -86,6 +85,11 @@ a {
 
 .bio_text {
     margin-left: 110px;
+}
+
+
+.logo {
+height: 20px;
 }
 
 .category {

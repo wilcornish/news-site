@@ -13,11 +13,11 @@
             <td>$article.getJournalist().getName()</td>
             <td>$article.getCategory().getCategoryName()</td>
 
-            <td><a href="/editor/articles/$article.getId()/edit">Edit Article</a></td>
+            <td><a href="/editor/articles/$article.getId()/edit"> <i class="material-icons" title="Edit">mode_edit</i> </a></td>
             <td>
                 <form action="/editor/articles/$article.getId()/delete" method="post">
-                    <input type="submit" value="Delete Article">
-                </form>
+                    <button type="submit" title="Delete" style="border:none;"<i class="material-icons">delete</i></button>
+                </form></td>
             </td>
         </tr>
         #end

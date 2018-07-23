@@ -1,10 +1,14 @@
 <article class="story">
-<h1>$article.getTitle()</h1>
-<a href="/journalists/$article.getJournalist().getId()"><h2>$article.getJournalist().getName()</h2></a>
-<h3>$article.getCategory().getCategoryName()</h3>
-<h3>$article.showHumanDate()</h3>
+
+    <div class="article_text">
+
+    <h5><a class="article_link" href="/articles/category/$article.getCategory().getLowercaseCategory()">$article.getCategory().getCategoryName()</a></h5>
+<h1 class="title">$article.getTitle()</h1>
+<a href="/journalists/$article.getJournalist().getId()"><h4 class="journalist_link">$article.getJournalist().getName()</h4></a>
+<h4 class="date">$article.showHumanDate()</h4>
 
 <p>$article.getContent()</p>
+    </div>
 <img src="/$article.getImage()" alt="" class="hero"/>
 
 <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large" data-text="Read this story on Wil and Gregor’s News Site" data-via="Wil_Cornish" data-hashtags="CodeClanLife" data-show-count="true">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>

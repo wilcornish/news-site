@@ -20,6 +20,10 @@ public enum Category {
         return this.categoryName;
     }
 
+    public String getLowercaseCategory() {
+        return this.categoryName.toLowerCase();
+    }
+
     public static Category findByName(String name) {
         ArrayList<Category> categoryList = new ArrayList<>();
         categoryList.add(Category.UK);

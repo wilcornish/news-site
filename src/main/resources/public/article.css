@@ -1,0 +1,28 @@
+.article_text {
+  color: black;
+}
+
+.article_link {
+    color: black;
+}
+
+.title {
+    color: black;
+}
+
+.date {
+    color: #2699FB;
+    line-height: 2px;
+}
+
+.article_link:hover {
+    color: #2699FB;
+}
+
+.journalist_link {
+    color: #2699FB;
+}
+
+.journalist_link:hover {
+    text-decoration: underline;
+}

@@ -1,8 +1,9 @@
 <article class="story">
+
+    <h5><a href="/"><i class="material-icons" title="Home">home</i></a> > <a href="/articles/category/politics"></a>$article.getCategory().getCategoryName()</h5>
 <h1>$article.getTitle()</h1>
-<a href="/journalists/$article.getJournalist().getId()"><h2>$article.getJournalist().getName()</h2></a>
-<h3>$article.getCategory().getCategoryName()</h3>
-<h3>$article.showHumanDate()</h3>
+<a href="/journalists/$article.getJournalist().getId()"><h4>$article.getJournalist().getName()</h4></a>
+<h4>$article.showHumanDate()</h4>
 
 <p>$article.getContent()</p>
 <img src="/$article.getImage()" alt="" class="hero"/>

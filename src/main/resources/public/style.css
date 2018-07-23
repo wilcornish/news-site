@@ -51,7 +51,21 @@ a {
 }
 
 .inner-bio{
-    line-spacing
+}
+
+.category {
+    grid-area: 1/1/span 1/span 1;
+    background-color: #7FC4FD;
+    padding-left: 5vw;
+    color: #ffffff;
+    flex-direction: column;
+    align-self: stretch;
+    line-height: .5em;
+    display: grid;
+    align-items: center;
+}
+
+.inner-category{
 }
 
 img {
@@ -63,7 +77,6 @@ img {
   width: auto;
   border-radius: 50%;
   float: left;
-  padding: 1vh;
 }
 
 .hero {

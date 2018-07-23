@@ -24,7 +24,7 @@ public class EditorController {
         {
             Map<String, Object> model = new HashMap();
             model.put("template", "templates/login.vtl");
-            return new ModelAndView(model, "templates/layout.vtl");
+            return new ModelAndView(model, "templates/editorlayout.vtl");
         }, velocityTemplateEngine);
 
         get("/login", (request, response) ->
@@ -32,7 +32,7 @@ public class EditorController {
         {
             Map<String, Object> model = new HashMap();
             model.put("template", "templates/login.vtl");
-            return new ModelAndView(model, "templates/layout.vtl");
+            return new ModelAndView(model, "templates/editorlayout.vtl");
         }, velocityTemplateEngine);
 
         post("/editor", (request, response) ->

@@ -54,7 +54,7 @@ public class ArticleController {
             model.put("journalists", journalists);
             model.put("date", date);
             model.put("categories", categories);
-            model.put("template", "templates/articles/Editor/create.vtl");
+            model.put("template", "templates/articles/editor/create.vtl");
             return new ModelAndView(model, "templates/editorlayout.vtl");
         }, velocityTemplateEngine);
 

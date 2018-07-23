@@ -1,5 +1,6 @@
 package controllers;
 
+import db.ArticleHelper;
 import db.DBHelper;
 import models.Article;
 import models.Category;
@@ -39,6 +40,8 @@ public class CategoryController {
             Category category = Category.SCIENCE;
             model.put("articles", articles);
             model.put("category", category);
+            List<Article> featurearticles = ArticleHelper.getAll();
+            model.put("featurearticles", featurearticles);
             return new ModelAndView(model, "templates/layout.vtl");
         }, velocityTemplateEngine);
 
@@ -49,6 +52,8 @@ public class CategoryController {
             Category category = Category.POLITICS;
             model.put("articles", articles);
             model.put("category", category);
+            List<Article> featurearticles = ArticleHelper.getAll();
+            model.put("featurearticles", featurearticles);
             return new ModelAndView(model, "templates/layout.vtl");
         }, velocityTemplateEngine);
 
@@ -59,6 +64,8 @@ public class CategoryController {
             Category category = Category.UK;
             model.put("articles", articles);
             model.put("category", category);
+            List<Article> featurearticles = ArticleHelper.getAll();
+            model.put("featurearticles", featurearticles);
             return new ModelAndView(model, "templates/layout.vtl");
         }, velocityTemplateEngine);
 
@@ -69,6 +76,8 @@ public class CategoryController {
             Category category = Category.WORLD;
             model.put("articles", articles);
             model.put("category", category);
+            List<Article> featurearticles = ArticleHelper.getAll();
+            model.put("featurearticles", featurearticles);
             return new ModelAndView(model, "templates/layout.vtl");
         }, velocityTemplateEngine);
 
@@ -79,6 +88,8 @@ public class CategoryController {
             Category category = Category.SPORTS;
             model.put("articles", articles);
             model.put("category", category);
+            List<Article> featurearticles = ArticleHelper.getAll();
+            model.put("featurearticles", featurearticles);
             return new ModelAndView(model, "templates/layout.vtl");
         }, velocityTemplateEngine);
 

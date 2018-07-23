@@ -1,9 +1,8 @@
-<h1>$category.getCategoryName()</h1>
+<header class="category"><h1 class="inner-category">$category.getCategoryName()</h1></header>
 
 #foreach($article in $articles)
-<article><img src="/$article.getImage()" alt="" height=250px/>
-    <h2>$article.getTitle()</h2>
+<article class="storypreview"><img src="/$article.getImage()" alt="" height=250px/>
+<a href="/articles/$article.getId()"><h2>$article.getTitle()</h2></a>
     <p>$article.getDate()</p>
-    <p>$article.getSummary()</p>
-    <p><a href="/articles/$article.getId()">Read More</a></p></article>
+    <p>$article.getSummary()</p></article>
 #end

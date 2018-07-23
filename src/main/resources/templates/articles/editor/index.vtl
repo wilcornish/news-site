@@ -1,13 +1,13 @@
 <div class="list-table">
     <table>
         <tr>
-            <th>Article Title</th>
-            <th>Article Date</th>
+            <th>Title</th>
+            <th>Date</th>
             <th>Journalist</th>
             <th>Category</th>
         </tr>
         #foreach($article in $articles)
-        <tr>
+        <tr class="entry">
             <td>$article.getTitle()</td>
             <td>$article.showHumanDate()</td>
             <td>$article.getJournalist().getName()</td>

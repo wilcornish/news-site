@@ -12,15 +12,33 @@ a {
   display: grid;
   height: 100vh;
   width: auto;
-  grid-template-columns: 1fr 3fr 1fr;
+  grid-template-columns: 1fr 5fr 1fr;
   grid-template-rows: 1fr 5fr;
   padding: 0px 0px;
+}
+
+table{
+border-collapse: collapse;
+}
+
+td {
+  padding: 10px 20px;
+}
+
+.entry {
+ border-bottom: 2px #7FC4FD solid;
+}
+
+.bottom-border{
+    padding:0px 0px;
+    border-bottom: 2px #7FC4FD solid;
 }
 
 .profile {
   height: 10vh;
   width: auto;
-  border-radius: 50%
+  border-radius: 50%;
+  margin: 1vh;
 }
 
 h1 {
@@ -35,6 +53,11 @@ justify-self: center;
 }
 
 form {
-  grid-area: 2/2/span 2/span 1;
+  grid-area: 2/2/span 1/span 1;
+  justify-self: center;
+}
+
+.login {
+  grid-area(1/2/span 1/span 1)
   justify-self: center;
 }

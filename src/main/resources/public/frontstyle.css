@@ -48,13 +48,14 @@ a {
 .frontpage-story-preview:first-child {
  grid-area: 1 / 1/ span 1 / span 3;
  background-color: #7FC4FD;
+ height: 45vh;
  padding: 0px;
  margin-right: 0px;
 
 }
 
 .frontpage-story-preview:first-child img{
-  height: fit;
+  height: 45vh;
   float: left;
   margin-right: 20px;
 }

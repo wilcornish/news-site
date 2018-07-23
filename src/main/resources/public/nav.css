@@ -5,6 +5,9 @@ ul {
     overflow: hidden;
     background-color: #2699FB;
     width: 100%;
+    top: 0;
+    position: fixed;
+    margin-bottom: 20px;
 }
 
 li {

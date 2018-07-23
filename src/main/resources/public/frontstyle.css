@@ -10,10 +10,10 @@ a {
 
 .grid {
   display: grid;
-  height: 150vh;
+  height: 100vh;
   width: auto;
   grid-template-columns: 1fr 1fr 1fr 32.5vh;
-  grid-template-rows: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
   grid-row-gap: 10px;
   padding: 0px 0px;
 }
@@ -25,6 +25,7 @@ a {
   margin-right: 10px;
 }
 
+
 .sidebar{
   grid-area: 1/ 4/ span 4/ span 1;
   background-color: #F1F9FF;
@@ -34,8 +35,37 @@ a {
   text-align: center;
 }
 
+.frontpage-story-preview {
+  grid-area: auto / auto/ span 2/ span 1;
+  border-bottom: 2px #7FC4FD solid;
+  padding: 10px;
+  margin-right: 10px;
+}
+
+.frontpage-story-preview:first-child {
+ grid-area: 1 / 1/ span 1 / span 3;
+ background-color: #7FC4FD;
+ padding: 0px;
+ margin-right: 0px;
+
+}
+
+.frontpage-story-preview:first-child img{
+  height: 33vh;
+  float: left;
+  margin-right: 20px;
+}
+
+.frontpage-story-preview:first-child a{
+ color: #ffffff;
+}
+
+.frontpage-story-preview:first-child p{
+ color: #ffffff;
+}
+
 .story{
-  grid-area: 1/2/span 4/span 1;
+  grid-area: 1/2/span 3/span 1;
 }
 
 .bio {

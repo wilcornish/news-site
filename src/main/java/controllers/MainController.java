@@ -38,7 +38,7 @@ public class MainController {
             model.put("template", "templates/home.vtl");
             List<Article> articles = ArticleHelper.getAll();
             model.put("articles", articles);
-            List<Article> featurearticles = ArticleHelper.getAll();
+            List<Article> featurearticles = ArticleHelper.getSidebar();
             model.put("featurearticles", featurearticles);
             return new ModelAndView(model, "templates/layout.vtl");
         }, velocityTemplateEngine);

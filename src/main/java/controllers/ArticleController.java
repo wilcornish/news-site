@@ -124,7 +124,7 @@ public class ArticleController {
             model.put("template", "templates/articles/show.vtl");
             Article article = DBHelper.find(Integer.valueOf(request.params("id")), Article.class);
             model.put("article", article);
-            List<Article> featurearticles = ArticleHelper.getAll();
+            List<Article> featurearticles = ArticleHelper.getSidebar();
             model.put("featurearticles", featurearticles);
             return new ModelAndView(model, "templates/layout.vtl");
         }, velocityTemplateEngine);

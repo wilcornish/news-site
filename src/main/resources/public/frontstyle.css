@@ -1,6 +1,7 @@
 body {
 font-family: Arial, sans-serif;
 color: #2699FB;
+margin: 0px;
 }
 
 a {
@@ -10,12 +11,13 @@ a {
 
 .grid {
   display: grid;
-  height: 100vh;
+  height: auto;
   width: auto;
   grid-template-columns: 1fr 1fr 1fr 32.5vh;
-  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
   grid-row-gap: 10px;
   padding: 0px 0px;
+  grid-auto-flow: row;
 }
 
 .storypreview {
@@ -27,7 +29,7 @@ a {
 
 
 .sidebar{
-  grid-area: 1/ 4/ span 4/ span 1;
+  grid-area: 1/ 4/ span 5 / span 1;
   background-color: #F1F9FF;
   padding-top: 10px;
   display: inline-flex;
@@ -36,7 +38,7 @@ a {
 }
 
 .frontpage-story-preview {
-  grid-area: auto / auto/ span 2/ span 1;
+  grid-area: auto / auto/ span 1/ span 1;
   border-bottom: 2px #7FC4FD solid;
   padding: 10px;
   margin-right: 10px;
@@ -51,7 +53,7 @@ a {
 }
 
 .frontpage-story-preview:first-child img{
-  height: 33vh;
+  height: fit;
   float: left;
   margin-right: 20px;
 }
@@ -99,11 +101,11 @@ a {
 }
 
 img {
-  height: 25vh;
+  height: 15vw;
 }
 
 .profile {
-  height: 15vh;
+  height: 14vh;
   width: auto;
   border-radius: 50%;
   float: left;

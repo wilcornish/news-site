@@ -66,8 +66,10 @@ public class Article {
         return date;
     }
 
+
     public void setDate(Date date) {
-        this.date = date;
+        Date bananas = new Date (10, 10 , 10);
+        this.date = bananas;
     }
 
     @Column(name = "content", columnDefinition = "TEXT")

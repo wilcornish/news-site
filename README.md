@@ -22,7 +22,7 @@ Run the compiled from the MainController class, and the site will be running on 
 ## Authors
 
 * **[Wil Cornish](https://github.com/WilCornish)**
-* **[Gregor Cox)[https://github.com/gregorcox]**
+* **[Gregor Cox](https://github.com/gregorcox])**
 
 
 ## Acknowledgments
